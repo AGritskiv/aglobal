@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AOG Elektro | Профессиональный электромонтаж на высоте</title>
+    <title>AG GLOBAL ELECTRIC | Professional Electrical Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 <style>
         :root {
-            --primary: #2A5CAA;
-            --accent: #FFA500;
+            --primary: #0056b3;
+            --accent: #ffc107;
             --text: #333333;
             --light: #f8f9fa;
-            --dark: #1a3a6e;
+            --dark: #003366;
+            --success: #28a745;
         }
         
         * {
@@ -29,7 +31,7 @@
             transition: all 0.3s ease;
         }
         
-        /* Навигация */
+        /* Navigation */
         header {
             background-color: var(--primary);
             padding: 15px 0;
@@ -65,6 +67,12 @@
         
         .logo-img:hover {
             transform: scale(1.05);
+        }
+        
+        .logo-text {
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
         }
         
         .language-switcher {
@@ -114,7 +122,7 @@
             background-color: rgba(255,255,255,0.1);
         }
         
-        /* Основные стили кнопок */
+        /* Button styles */
         .btn {
             background-color: var(--accent);
             color: black;
@@ -140,9 +148,19 @@
             transform: translateY(1px);
         }
         
-        /* Герой-секция */
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #004494;
+            color: white;
+        }
+        
+        /* Hero section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/hero-bg.png');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -157,33 +175,40 @@
         }
         
         .hero h1 {
-            font-size: 42px;
+            font-size: 3.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             max-width: 800px;
         }
         
         .hero p {
-            font-size: 20px;
+            font-size: 1.5rem;
             max-width: 900px;
-            margin-bottom: 70px;
+            margin-bottom: 40px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
         
-        /* Секции */
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        /* Sections */
         .section {
-            padding: 50px 0;
+            padding: 80px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 8px;
+            margin-bottom: 60px;
         }
         
         .section-title h2 {
-            font-size: 36px;
+            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 60px;
+            margin-bottom: 20px;
             position: relative;
             display: inline-block;
         }
@@ -191,7 +216,7 @@
         .section-title h2:after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
@@ -201,13 +226,13 @@
         }
         
         .section-title p {
-            font-size: 18px;
+            font-size: 1.2rem;
             color: #666;
             max-width: 700px;
             margin: 20px auto 0;
         }
         
-        /* Сетка услуг */
+        /* Services grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -219,12 +244,13 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
         }
         
         .service-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
         .service-img {
@@ -250,7 +276,7 @@
         .service-content h3 {
             margin-top: 0;
             color: var(--primary);
-            font-size: 22px;
+            font-size: 1.4rem;
             margin-bottom: 15px;
         }
         
@@ -259,7 +285,38 @@
             color: #555;
         }
         
-        /* Команда */
+        /* Industries */
+        .industries {
+            background-color: var(--light);
+        }
+        
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .industry-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .industry-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .industry-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Team */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -290,7 +347,7 @@
         }
         
         .team-member h3 {
-            font-size: 22px;
+            font-size: 1.4rem;
             margin-bottom: 10px;
             color: var(--primary);
         }
@@ -300,7 +357,37 @@
             color: #555;
         }
         
-        /* Контакты */
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 0 15px;
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        /* Contact */
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -318,7 +405,7 @@
         .contact-info h3 {
             color: var(--primary);
             margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 1.5rem;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--accent);
         }
@@ -357,7 +444,7 @@
         .contact-form h3 {
             color: var(--primary);
             margin-bottom: 25px;
-            font-size: 24px;
+            font-size: 1.5rem;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--accent);
         }
@@ -390,7 +477,7 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(42, 92, 170, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
         }
         
         .form-group textarea {
@@ -398,11 +485,11 @@
             resize: vertical;
         }
         
-        /* Футер */
+        /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 40px 0 20px;
+            padding: 60px 0 20px;
         }
         
         .footer-content {
@@ -468,7 +555,7 @@
             font-size: 14px;
         }
         
-        /* Модальное окно */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -538,14 +625,145 @@
             line-height: 1.6;
         }
         
-        /* Адаптивность */
-        @media (max-width: 992px) {
+        /* Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .chatbot-button:hover {
+            background-color: var(--dark);
+            transform: scale(1.1);
+        }
+        
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            display: none;
+        }
+        
+        .chatbot-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chatbot-body {
+            padding: 15px;
+            height: 400px;
+            overflow-y: auto;
+        }
+        
+        .chatbot-message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .bot-message {
+            background-color: #f1f1f1;
+            border-top-left-radius: 5px;
+            margin-right: auto;
+        }
+        
+        .user-message {
+            background-color: var(--primary);
+            color: white;
+            border-top-right-radius: 5px;
+            margin-left: auto;
+        }
+        
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+        
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+        
+        .chatbot-input button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        
+        /* Success message */
+        .success-message {
+            display: none;
+            background-color: var(--success);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
             .hero h1 {
-                font-size: 36px;
+                font-size: 3rem;
             }
             
             .hero p {
-                font-size: 18px;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
         
@@ -576,225 +794,281 @@
             }
             
             .hero h1 {
-                font-size: 30px;
+                font-size: 2rem;
             }
             
             .hero p {
-                font-size: 17px;
+                font-size: 1rem;
             }
             
             .logo-img {
                 height: 40px;
             }
             
-            .section {
-                padding: 60px 0;
-            }
-            
             .section-title h2 {
-                font-size: 30px;
+                font-size: 1.8rem;
             }
             
             .modal-content {
                 padding: 30px 20px;
             }
+            
+            .chatbot-window {
+                width: 300px;
+            }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
             .hero h1 {
-                font-size: 26px;
+                font-size: 1.8rem;
             }
             
-            .section-title h2 {
-                font-size: 26px;
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
             }
             
             .btn {
-                padding: 10px 20px;
-                font-size: 15px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .chatbot-window {
+                width: 280px;
+                right: -20px;
             }
         }
 </style>
   </head>
   <body>
-    <!-- Навигация -->
+    <!-- Navigation -->
     <header>
       <div class="container">
         <div class="header-content">
           <div class="logo-container">
             <a href="#" class="logo">
-              <img src="images/logo.png" alt="AOG Elektro Logo" class="logo-img">
+              <img src="images/logo.png" alt="AG GLOBAL ELECTRIC Logo" class="logo-img">
+              <span class="logo-text">AG GLOBAL ELECTRIC</span>
             </a>
             <div class="language-switcher">
-              <button class="lang-btn active" data-lang="ru">RU</button>
               <button class="lang-btn" data-lang="en">EN</button>
+              <button class="lang-btn" data-lang="ru">RU</button>
               <button class="lang-btn" data-lang="lt">LT</button>
               <button class="lang-btn" data-lang="pl">PL</button>
             </div>
           </div>
           <nav>
             <ul>
-              <li><a href="#services" data-key="nav.services">Услуги</a></li>
-              <li><a href="#team" data-key="nav.team">Команда</a></li>
-              <li><a href="#projects" data-key="nav.projects">Проекты</a></li>
-              <li><a href="#contact" data-key="nav.contact">Контакты</a></li>
+              <li><a href="#services" data-key="nav.services">Services</a></li>
+              <li><a href="#industries" data-key="nav.industries">Industries</a></li>
+              <li><a href="#team" data-key="nav.team">Team</a></li>
+              <li><a href="#contact" data-key="nav.contact">Contact</a></li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
 
-    <!-- Герой-секция -->
-    <section class="hero">
-      <div class="container">
-        <h1 data-key="hero.title">Профессиональный электромонтаж на высоте</h1>
-        <p data-key="hero.subtitle">Сертифицированные специалисты с допусками EN 353/361. Работаем по всей Литве.</p>
-        <button class="btn" onclick="openModal('callback-modal')" data-key="hero.button">Заказать звонок</button>
-      </div>
-    </section>
+	<!-- Hero section -->
+	<section class="hero">
+	  <div class="container">
+		<h1>AG GLOBAL ELECTRIC</h1>
+		<h1 data-key="hero.title">Professional Electrical Services for All Your Needs</h1>
+		<p data-key="hero.subtitle">Certified specialists providing height electrical installation services for private clients and organizations in oil & gas, marine platforms, ships, and more. Competitive prices from a growing young company.</p>
+		<div class="hero-buttons">
+		  <button class="btn btn-primary" onclick="openModal('callback-modal')" data-key="hero.button1">Request a Callback</button>
+		  <button class="btn" onclick="openModal('quote-modal')" data-key="hero.button2">Get a Quote</button>
+		</div>
+	  </div>
+	</section>
 
-    <!-- Услуги -->
+    <!-- Services -->
     <section class="section" id="services">
       <div class="container">
         <div class="section-title">
-          <h2 data-key="services.title">AOG ELECTRO Наши услуги</h2>
-          <p data-key="services.subtitle">Полный спектр электромонтажных работ на высоте</p>
+          <h2 data-key="services.title">Our Services</h2>
+          <p data-key="services.subtitle">Comprehensive electrical solutions for various industries</p>
         </div>
 
         <div class="services-grid">
           <div class="service-card">
             <div class="service-img">
-              <img src="images/service1.jpg" alt="Монтаж электрооборудования">
+              <img src="images/logo-white.png" alt="Fiber Optic Cable Installation">
             </div>
             <div class="service-content">
-              <h3 data-key="services.service1.title">Монтаж электрооборудования</h3>
-              <p data-key="services.service1.desc">Профессиональный монтаж электрощитов, кабельных линий и другого оборудования на высоте.</p>
-              <button class="btn" onclick="openModal('service1-modal')" data-key="services.button">Подробнее</button>
+              <h3 data-key="services.service1.title">Fiber Optic Cable Installation</h3>
+              <p data-key="services.service1.desc">Professional installation of fiber optic cables for high-speed data transmission in various environments.</p>
+              <button class="btn" onclick="openModal('service1-modal')" data-key="services.button">Learn More</button>
             </div>
           </div>
 
           <div class="service-card">
             <div class="service-img">
-              <img src="images/service2.jpg" alt="Ремонтные работы">
+              <img src="images/cat.jpg" alt="Generator Services">
             </div>
             <div class="service-content">
-              <h3 data-key="services.service2.title">Ремонтные работы</h3>
-              <p data-key="services.service2.desc">Диагностика и ремонт электрооборудования на промышленных объектах и высотных зданиях.</p>
-              <button class="btn" onclick="openModal('service2-modal')" data-key="services.button">Подробнее</button>
+              <h3 data-key="services.service2.title">Generator Services</h3>
+              <p data-key="services.service2.desc">Installation, setup and testing of Caterpillar, Volvo, Stamford, MTU generators and more.</p>
+              <button class="btn" onclick="openModal('service2-modal')" data-key="services.button">Learn More</button>
             </div>
           </div>
 
           <div class="service-card">
             <div class="service-img">
-              <img src="images/service3.jpg" alt="Техническое обслуживание">
+              <img src="images/Depenergi.png" alt="Marine Electrical">
             </div>
             <div class="service-content">
-              <h3 data-key="services.service3.title">Техническое обслуживание</h3>
-              <p data-key="services.service3.desc">Плановые проверки и профилактические работы для электроустановок.</p>
-              <button class="btn" onclick="openModal('service3-modal')" data-key="services.button">Подробнее</button>
+              <h3 data-key="services.service3.title">Marine Electrical Systems</h3>
+              <p data-key="services.service3.desc">Repair and maintenance of electrical equipment for yachts, boats and ships.</p>
+              <button class="btn" onclick="openModal('service3-modal')" data-key="services.button">Learn More</button>
             </div>
+          </div>
+		  <!-- Add this to your services section -->
+		  <div class="service-card">
+			<div class="service-img">
+			  <img src="images/project3.jpg" alt="Height Electrical Installation">
+			</div>
+			<div class="service-content">
+			  <h3 data-key="services.service4.title">Height Electrical Installation</h3>
+			  <p data-key="services.service4.desc">Professional installation services at height with certified specialists and safety equipment.</p>
+			  <button class="btn" onclick="openModal('height-modal')" data-key="services.button">Learn More</button>
+			</div>
+		  </div>
+		  
+		  <!-- Add this new service card to your services-grid section -->
+		  <div class="service-card">
+			<div class="service-img">
+			  <img src="images/service2.jpg" alt="Private Client Services">
+			</div>
+			<div class="service-content">
+			  <h3 data-key="services.service5.title">Private Client Services</h3>
+			  <p data-key="services.service5.desc">Custom electrical solutions for homes and personal needs with optimal systems.</p>
+			  <button class="btn" onclick="openModal('private-modal')" data-key="services.button">Learn More</button>
+			</div>
+		  </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="section industries" id="industries">
+      <div class="container">
+        <div class="section-title">
+          <h2 data-key="industries.title">Industries We Serve</h2>
+          <p data-key="industries.subtitle">Specialized electrical services for diverse sectors</p>
+        </div>
+
+        <div class="industry-grid">
+          <div class="industry-item">
+            <div class="industry-icon"><i class="fas fa-industry"></i></div>
+            <h3 data-key="industries.industry1">Oil & Gas</h3>
+            <p data-key="industries.industry1.desc">Electrical solutions for offshore platforms and refineries</p>
+          </div>
+
+          <div class="industry-item">
+            <div class="industry-icon"><i class="fas fa-ship"></i></div>
+            <h3 data-key="industries.industry2">Marine & Shipbuilding</h3>
+            <p data-key="industries.industry2.desc">Electrical systems for vessels and shipyards</p>
+          </div>
+
+          <div class="industry-item">
+            <div class="industry-icon"><i class="fas fa-satellite-dish"></i></div>
+            <h3 data-key="industries.industry3">Satellite Systems</h3>
+            <p data-key="industries.industry3.desc">Installation and configuration of satellite navigation</p>
+          </div>
+		  
+		  <div class="industry-item">
+       
+			<div class="industry-icon"><i class="fas fa-home"></i></div>
+         
+			<h3 data-key="industries.industry4">Height Electrical Installation</h3>
+         
+			<p data-key="industries.industry4.desc">Professional installation services at height with certified specialists and safety equipment</p>
+      
+			</div>
+
+          <div class="industry-item">
+            <div class="industry-icon"><i class="fas fa-stairs"></i></div>
+            <h3 data-key="industries.industry5">Private Clients</h3>
+            <p data-key="industries.industry5.desc">Custom solutions for homes and personal needs</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Команда -->
+    <!-- Team -->
     <section class="section" id="team">
       <div class="container">
         <div class="section-title">
-          <h2 data-key="team.title">Наша команда</h2>
-          <p data-key="team.subtitle">Профессионалы с многолетним опытом работы</p>
+          <h2 data-key="team.title">Our Team</h2>
+          <p data-key="team.subtitle">Professionals with years of experience in electrical engineering</p>
         </div>
 
         <div class="team-grid">
           <div class="team-member">
             <img src="images/andrey.png" alt="Andrey Gritskiv" class="team-photo">
             <h3>Andrey Gritskiv</h3>
-            <p data-key="team.andrey.position">Главный Электро инженеер</p>
-            <p data-key="team.andrey.experience">25+ лет опыта</p>
-            <p data-key="team.andrey.certificates">Сертификаты: EN 353/361, Elektrofachkraft</p>
+            <p data-key="team.andrey.position">Chief Electrical Engineer</p>
+            <p data-key="team.andrey.experience">25+ years experience</p>
+            <p data-key="team.andrey.certificates">Certifications: EN 353/361, Elektrofachkraft</p>
           </div>
 
           <div class="team-member">
             <img src="images/oksana.png" alt="Oksana Gritskiv" class="team-photo">
             <h3>Oksana Gritskiv</h3>
-            <p data-key="team.oksana.position">Менеджер проектов</p>
-            <p data-key="team.oksana.experience">15+ лет опыта</p>
-            <p data-key="team.oksana.specialization">Специализация: работа с персоналом, поиск проектов</p>
+            <p data-key="team.oksana.position">Project Manager</p>
+            <p data-key="team.oksana.experience">15+ years experience</p>
+            <p data-key="team.oksana.specialization">Specialization: personnel management, project acquisition</p>
           </div>
 
           <div class="team-member">
-            <img src="images/team.png" alt="Монтажная бригада" class="team-photo">
-            <h3 data-key="team.crew.title">Монтажная бригада</h3>
-            <p data-key="team.crew.description">Квалифицированные специалисты</p>
-            <p data-key="team.crew.certificates">Все сотрудники имеют необходимые сертификаты</p>
+            <img src="images/team.png" alt="Installation Team" class="team-photo">
+            <h3 data-key="team.crew.title">Installation Team</h3>
+            <p data-key="team.crew.description">Certified electrical specialists</p>
+            <p data-key="team.crew.certificates">All technicians have required certifications</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Проекты -->
-    <section class="section" id="projects">
+    <!-- Testimonials -->
+    <section class="section testimonials">
       <div class="container">
         <div class="section-title">
-          <h2 data-key="projects.title">Наши проекты</h2>
-          <p data-key="projects.subtitle">Реализованные работы в различных отраслях</p>
+          <h2 data-key="testimonials.title">Client Testimonials</h2>
+          <p data-key="testimonials.subtitle">What our clients say about our services</p>
         </div>
 
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-img">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Промышленный объект">
-            </div>
-            <div class="service-content">
-              <h3 data-key="projects.project1.title">Промышленный объект</h3>
-              <p data-key="projects.project1.desc">Полный цикл электромонтажных работ на производственном предприятии.</p>
-              <button class="btn" onclick="openModal('project1-modal')" data-key="projects.button">Подробнее</button>
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div class="service-img">
-              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80" alt="Жилой комплекс">
-            </div>
-            <div class="service-content">
-              <h3 data-key="projects.project2.title">Жилой комплекс</h3>
-              <p data-key="projects.project2.desc">Монтаж электрооборудования в многоэтажном жилом доме.</p>
-              <button class="btn" onclick="openModal('project2-modal')" data-key="projects.button">Подробнее</button>
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div class="service-img">
-              <img src="images/project3.jpg" alt="Телекоммуникации">
-            </div>
-            <div class="service-content">
-              <h3 data-key="projects.project3.title">Телекоммуникации</h3>
-              <p data-key="projects.project3.desc">Установка оборудования на телекоммуникационных вышках.</p>
-              <button class="btn" onclick="openModal('project3-modal')" data-key="projects.button">Подробнее</button>
-            </div>
+        <div class="testimonial-slider">
+          <div class="testimonial-item">
+            <p class="testimonial-text" data-key="testimonials.testimonial1.text">"AG GLOBAL ELECTRIC provided excellent service for our offshore platform. Their team was professional and completed the work ahead of schedule."</p>
+            <p class="testimonial-author" data-key="testimonials.testimonial1.author">- Marine Operations Manager</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Контакты -->
+    <!-- Contact -->
     <section class="section" id="contact">
       <div class="container">
         <div class="section-title">
-          <h2 data-key="contact.title">Контакты</h2>
-          <p data-key="contact.subtitle">Свяжитесь с нами для обсуждения вашего проекта</p>
+          <h2 data-key="contact.title">Contact Us</h2>
+          <p data-key="contact.subtitle">Get in touch to discuss your electrical project</p>
         </div>
 
         <div class="contact-container">
           <div class="contact-info">
-            <h3 data-key="contact.info.title">Контактная информация</h3>
-            <p><i class="fas fa-map-marker-alt"></i> <span data-key="contact.address">г. Клайпеда, ул. Электросети, 15</span></p>
+            <h3 data-key="contact.info.title">Contact Information</h3>
+            <p><i class="fas fa-map-marker-alt"></i> <span data-key="contact.address">Klaipėda, Lithuania</span></p>
             <p><i class="fas fa-phone"></i> <a href="tel:+37064888657">+370 648 88657</a></p>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:craer@yandex.com">craer@yandex.com</a></p>
-            <p><i class="fas fa-clock"></i> <span data-key="contact.hours">Пн-Пт: 8:00-17:00</span></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:craer@yandex.ru">craer@yandex.ru</a></p>
+            <p><i class="fas fa-clock"></i> <span data-key="contact.hours">Mon-Fri: 8:00-17:00</span></p>
 
-            <h3 data-key="contact.social.title">Социальные сети</h3>
+            <h3 data-key="contact.social.title">Social Media</h3>
             <div class="social-links">
               <a href="#"><i class="fab fa-facebook-f"></i></a>
               <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -804,15 +1078,15 @@
           </div>
 
           <div class="contact-form">
-            <h3 data-key="contact.form.title">Форма обратной связи</h3>
+            <h3 data-key="contact.form.title">Contact Form</h3>
             <form id="contactForm" onsubmit="submitForm(event)">
               <div class="form-group">
-                <label for="name" data-key="contact.form.name">Ваше имя</label>
+                <label for="name" data-key="contact.form.name">Your Name</label>
                 <input type="text" id="name" name="name" required>
               </div>
 
               <div class="form-group">
-                <label for="phone" data-key="contact.form.phone">Телефон</label>
+                <label for="phone" data-key="contact.form.phone">Phone</label>
                 <input type="tel" id="phone" name="phone" required>
               </div>
 
@@ -822,32 +1096,34 @@
               </div>
 
               <div class="form-group">
-                <label for="service" data-key="contact.form.service">Интересующая услуга</label>
+                <label for="service" data-key="contact.form.service">Service Needed</label>
                 <select id="service" name="service">
-                  <option value="montage" data-key="contact.form.option1">Монтаж электрооборудования</option>
-                  <option value="repair" data-key="contact.form.option2">Ремонтные работы</option>
-                  <option value="service" data-key="contact.form.option3">Техническое обслуживание</option>
-                  <option value="other" data-key="contact.form.option4">Другое</option>
+                  <option value="fiber" data-key="contact.form.option1">Fiber Optic Installation</option>
+                  <option value="generator" data-key="contact.form.option2">Generator Services</option>
+                  <option value="marine" data-key="contact.form.option3">Marine Electrical</option>
+                  <option value="private" data-key="contact.form.option4">Private Client Services</option>
+                  <option value="other" data-key="contact.form.option5">Other</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="message" data-key="contact.form.message">Сообщение</label>
+                <label for="message" data-key="contact.form.message">Message</label>
                 <textarea id="message" name="message" required></textarea>
               </div>
 
-              <button type="submit" class="btn" data-key="contact.form.button">Отправить запрос</button>
+              <button type="submit" class="btn" data-key="contact.form.button">Send Request</button>
+              <div id="form-success" class="success-message" data-key="contact.form.success">Thank you! We'll contact you soon.</div>
             </form>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Футер -->
+    <!-- Footer -->
     <footer>
       <div class="container">
         <div class="footer-content">
-          <img src="images/logo-white.png" alt="AOG Elektro" class="footer-logo">
+	<img src="images/logo3.jpg" alt="AG GLOBAL ELECTRIC" class="footer-logo">
           <div class="social-links">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -855,203 +1131,422 @@
             <a href="#"><i class="fab fa-youtube"></i></a>
           </div>
           <div class="footer-links">
-            <a href="#services" data-key="footer.services">Услуги</a>
-            <a href="#team" data-key="footer.team">Команда</a>
-            <a href="#projects" data-key="footer.projects">Проекты</a>
-            <a href="#contact" data-key="footer.contact">Контакты</a>
-            <a href="#" data-key="footer.privacy">Политика конфиденциальности</a>
+            <a href="#services" data-key="footer.services">Services</a>
+            <a href="#industries" data-key="footer.industries">Industries</a>
+            <a href="#team" data-key="footer.team">Team</a>
+            <a href="#contact" data-key="footer.contact">Contact</a>
+            <a href="#" data-key="footer.privacy">Privacy Policy</a>
           </div>
           <div class="copyright">
-            <p>&copy; 2023 AOG Elektro. <span data-key="footer.rights">Все права защищены.</span></p>
-            <p data-key="footer.certificates">Сертификаты: EN 353/361, ISO 9001</p>
+            <p>&copy; 2023 AG GLOBAL ELECTRIC. <span data-key="footer.rights">All Rights Reserved.</span></p>
+            <p data-key="footer.certificates">Certifications: EN 353/361, ISO 9001</p>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- Модальные окна -->
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+      <div class="chatbot-button" id="chatbotButton">
+        <i class="fas fa-robot"></i>
+      </div>
+      <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+          <span data-key="chatbot.title">AG GLOBAL ELECTRIC Assistant</span>
+          <span class="close-chatbot" onclick="closeChatbot()">&times;</span>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+          <div class="chatbot-message bot-message" data-key="chatbot.welcome">
+            Hello! How can I help you today? Here are some common questions:
+          </div>
+          <div class="chatbot-message bot-message" data-key="chatbot.options">
+            1. What services do you offer?<br>
+            2. How can I request a quote?<br>
+            3. What industries do you serve?<br>
+            4. How can I contact your team?
+          </div>
+        </div>
+        <div class="chatbot-input">
+          <input type="text" id="chatbotInput" placeholder="Type your message..." data-key="chatbot.placeholder">
+          <button onclick="sendChatbotMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Callback Modal -->
     <div id="callback-modal" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal('callback-modal')">&times;</span>
-        <h2 data-key="modal.callback.title">Заказать звонок</h2>
+        <h2 data-key="modal.callback.title">Request a Callback</h2>
         <form id="callbackForm">
           <div class="form-group">
-            <label for="callback-name" data-key="modal.callback.name">Ваше имя</label>
+            <label for="callback-name" data-key="modal.callback.name">Your Name</label>
             <input type="text" id="callback-name" required>
           </div>
           <div class="form-group">
-            <label for="callback-phone" data-key="modal.callback.phone">Телефон</label>
+            <label for="callback-phone" data-key="modal.callback.phone">Phone</label>
             <input type="tel" id="callback-phone" required>
           </div>
           <div class="form-group">
-            <label for="callback-time" data-key="modal.callback.time">Удобное время для звонка</label>
+            <label for="callback-time" data-key="modal.callback.time">Preferred Call Time</label>
             <input type="text" id="callback-time">
           </div>
-          <button type="submit" class="btn" data-key="modal.callback.button">Заказать звонок</button>
+          <button type="submit" class="btn" data-key="modal.callback.button">Request Callback</button>
+          <div id="callback-success" class="success-message" data-key="modal.callback.success">Thank you! We'll call you soon.</div>
         </form>
       </div>
     </div>
 
-    <!-- Модалки для услуг -->
+    <!-- Quote Modal -->
+    <div id="quote-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('quote-modal')">&times;</span>
+        <h2 data-key="modal.quote.title">Request a Quote</h2>
+        <form id="quoteForm">
+          <div class="form-group">
+            <label for="quote-name" data-key="modal.quote.name">Your Name</label>
+            <input type="text" id="quote-name" required>
+          </div>
+          <div class="form-group">
+            <label for="quote-email" data-key="modal.quote.email">Email</label>
+            <input type="email" id="quote-email" required>
+          </div>
+          <div class="form-group">
+            <label for="quote-phone" data-key="modal.quote.phone">Phone</label>
+            <input type="tel" id="quote-phone">
+          </div>
+          <div class="form-group">
+            <label for="quote-service" data-key="modal.quote.service">Service Needed</label>
+            <select id="quote-service" name="service">
+              <option value="fiber" data-key="modal.quote.option1">Fiber Optic Installation</option>
+              <option value="generator" data-key="modal.quote.option2">Generator Services</option>
+              <option value="marine" data-key="modal.quote.option3">Marine Electrical</option>
+              <option value="private" data-key="modal.quote.option4">Private Client Services</option>
+              <option value="other" data-key="modal.quote.option5">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="quote-details" data-key="modal.quote.details">Project Details</label>
+            <textarea id="quote-details" required></textarea>
+          </div>
+          <button type="submit" class="btn" data-key="modal.quote.button">Request Quote</button>
+          <div id="quote-success" class="success-message" data-key="modal.quote.success">Thank you! We'll prepare your quote soon.</div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Service Modals -->
     <div id="service1-modal" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal('service1-modal')">&times;</span>
-        <h2 data-key="modal.service1.title">Монтаж электрооборудования</h2>
-        <img src="images/service1.jpg" alt="Монтаж электрооборудования">
-        <p data-key="modal.service1.desc">Мы предлагаем полный комплекс услуг по монтажу электрооборудования на высоте:</p>
+        <h2 data-key="modal.service1.title">Fiber Optic Cable Installation</h2>
+        <img src="images/logo-white.png" alt="Fiber Optic Cable Installation">
+        <p data-key="modal.service1.desc">Our professional fiber optic installation services include:</p>
         <ul>
-          <li data-key="modal.service1.list1">Установка электрощитов и распределительных устройств</li>
-          <li data-key="modal.service1.list2">Прокладка кабельных линий</li>
-          <li data-key="modal.service1.list3">Монтаж осветительного оборудования</li>
-          <li data-key="modal.service1.list4">Установка систем заземления</li>
+          <li data-key="modal.service1.list1">Design and planning of fiber optic networks</li>
+          <li data-key="modal.service1.list2">Installation of underground and aerial fiber cables</li>
+          <li data-key="modal.service1.list3">Splicing and termination services</li>
+          <li data-key="modal.service1.list4">Testing and certification of installed fiber</li>
+          <li data-key="modal.service1.list5">Marine and offshore fiber optic solutions</li>
         </ul>
-        <button class="btn" onclick="closeModal('service1-modal'); openModal('callback-modal')" data-key="modal.service1.button">Заказать услугу</button>
+        <button class="btn" onclick="closeModal('service1-modal'); openModal('quote-modal')" data-key="modal.service1.button">Request Quote</button>
       </div>
     </div>
 
     <div id="service2-modal" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal('service2-modal')">&times;</span>
-        <h2 data-key="modal.service2.title">Ремонтные работы</h2>
-        <img src="images/service2.jpg" alt="Ремонтные работы">
-        <p data-key="modal.service2.desc">Наши специалисты выполняют все виды ремонтных работ на высоте:</p>
+        <h2 data-key="modal.service2.title">Generator Services</h2>
+        <img src="images/cat.jpg" alt="Generator Services">
+        <p data-key="modal.service2.desc">Comprehensive generator services for all makes and models:</p>
         <ul>
-          <li data-key="modal.service2.list1">Диагностика неисправностей</li>
-          <li data-key="modal.service2.list2">Ремонт электрооборудования</li>
-          <li data-key="modal.service2.list3">Замена изношенных элементов</li>
-          <li data-key="modal.service2.list4">Аварийные работы</li>
+          <li data-key="modal.service2.list1">Installation and commissioning of new generators</li>
+          <li data-key="modal.service2.list2">Routine maintenance and servicing</li>
+          <li data-key="modal.service2.list3">Diagnostics and troubleshooting</li>
+          <li data-key="modal.service2.list4">Load bank testing</li>
+          <li data-key="modal.service2.list5">Emergency repair services</li>
         </ul>
-        <button class="btn" onclick="closeModal('service2-modal'); openModal('callback-modal')" data-key="modal.service2.button">Заказать услугу</button>
+        <button class="btn" onclick="closeModal('service2-modal'); openModal('quote-modal')" data-key="modal.service2.button">Request Quote</button>
       </div>
     </div>
 
     <div id="service3-modal" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal('service3-modal')">&times;</span>
-        <h2 data-key="modal.service3.title">Техническое обслуживание</h2>
-        <img src="images/service3.jpg" alt="Техническое обслуживание">
-        <p data-key="modal.service3.desc">Регулярное техническое обслуживание - залог бесперебойной работы электрооборудования:</p>
+        <h2 data-key="modal.service3.title">Marine Electrical Systems</h2>
+        <img src="images/Depenergi.png" alt="Marine Electrical Systems">
+        <p data-key="modal.service3.desc">Specialized electrical services for marine applications:</p>
         <ul>
-          <li data-key="modal.service3.list1">Плановые проверки</li>
-          <li data-key="modal.service3.list2">Профилактические работы</li>
-          <li data-key="modal.service3.list3">Тестирование оборудования</li>
-          <li data-key="modal.service3.list4">Составление отчетов</li>
+          <li data-key="modal.service3.list1">Yacht and boat electrical system installation</li>
+          <li data-key="modal.service3.list2">Navigation and communication systems</li>
+          <li data-key="modal.service3.list3">DP (Dynamic Positioning) systems</li>
+          <li data-key="modal.service3.list4">Electrical troubleshooting and repairs</li>
+          <li data-key="modal.service3.list5">Custom electrical solutions</li>
         </ul>
-        <button class="btn" onclick="closeModal('service3-modal'); openModal('callback-modal')" data-key="modal.service3.button">Заказать услугу</button>
+        <button class="btn" onclick="closeModal('service3-modal'); openModal('quote-modal')" data-key="modal.service3.button">Request Quote</button>
       </div>
     </div>
 
-
-    <!-- Модалки для проект -->
-    <div id="project1-modal" class="modal">
+	<!-- Private Services Modal -->
+    <div id="private-modal" class="modal">
       <div class="modal-content">
-        <span class="close" onclick="closeModal('project1-modal')">&times;</span>
-        <h2 data-key="modal.project1.title">Промышленный объект</h2>
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Промышленный объект">
-        <p data-key="modal.project1.desc">Полный цикл электромонтажных работ на производственном предприятии:</p>
+        <span class="close" onclick="closeModal('private-modal')">&times;</span>
+        <h2 data-key="modal.private.title">Private Client Services</h2>
+        <img src="images/service2.jpg" alt="Private Client Services">
+        <p data-key="modal.private.desc">Custom electrical solutions for private clients:</p>
         <ul>
-          <li data-key="modal.project1.list1">Монтаж силовых щитов</li>
-          <li data-key="modal.project1.list2">Прокладка кабельных трасс</li>
-          <li data-key="modal.project1.list3">Установка осветительных систем</li>
-          <li data-key="modal.project1.list4">Подключение промышленного оборудования</li>
+          <li data-key="modal.private.list1">Terrace heating systems with temperature controllers</li>
+          <li data-key="modal.private.list2">Home automation and smart systems</li>
+          <li data-key="modal.private.list3">Custom lighting solutions</li>
+          <li data-key="modal.private.list4">Electrical safety inspections</li>
+          <li data-key="modal.private.list5">Energy efficiency solutions</li>
         </ul>
-        <button class="btn" onclick="closeModal('project1-modal'); openModal('callback-modal')" data-key="modal.project1.button">Заказать услугу</button>
+        <button class="btn" onclick="closeModal('private-modal'); openModal('quote-modal')" data-key="modal.private.button">Request Quote</button>
       </div>
     </div>
-
-    <div id="project2-modal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal('project2-modal')">&times;</span>
-        <h2 data-key="modal.project2.title">Жилой комплекс</h2>
-        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80" alt="Жилой комплекс">
-        <p data-key="modal.project2.desc">Монтаж электрооборудования в многоэтажном жилом доме:</p>
-        <ul>
-          <li data-key="modal.project2.list1">Установка распределительных щитов</li>
-          <li data-key="modal.project2.list2">Прокладка электропроводки</li>
-          <li data-key="modal.project2.list3">Монтаж системы освещения</li>
-          <li data-key="modal.project2.list4">Подключение бытовой техники</li>
-        </ul>
-        <button class="btn" onclick="closeModal('project2-modal'); openModal('callback-modal')" data-key="modal.project2.button">Заказать услугу</button>
-      </div>
-    </div>
-
-    <div id="project3-modal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal('project3-modal')">&times;</span>
-        <h2 data-key="modal.project3.title">Телекоммуникации</h2>
-        <img src="images/project3.jpg" alt="Телекоммуникации">
-        <p data-key="modal.project3.desc">Установка оборудования на телекоммуникационных вышках:</p>
-        <ul>
-          <li data-key="modal.project3.list1">Монтаж антенных систем</li>
-          <li data-key="modal.project3.list2">Прокладка кабельных линий</li>
-          <li data-key="modal.project3.list3">Установка передающего оборудования</li>
-          <li data-key="modal.project3.list4">Тестирование и настройка систем</li>
-        </ul>
-        <button class="btn" onclick="closeModal('project3-modal'); openModal('callback-modal')" data-key="modal.project3.button">Заказать услугу</button>
-      </div>
-    </div>
+	
+	<!-- Height Installation Modal -->
+	<div id="height-modal" class="modal">
+	  <div class="modal-content">
+		<span class="close" onclick="closeModal('height-modal')">&times;</span>
+		<h2 data-key="modal.height.title">Height Electrical Installation</h2>
+		<img src="images/project3.jpg" alt="Height Electrical Installation">
+		<p data-key="modal.height.desc">Our certified specialists provide professional electrical installation services at height:</p>
+		<ul>
+		  <li data-key="modal.height.list1">Industrial installations on high structures</li>
+		  <li data-key="modal.height.list2">Marine platform electrical systems</li>
+		  <li data-key="modal.height.list3">Telecommunication tower installations</li>
+		  <li data-key="modal.height.list4">Bridge and construction site electrical work</li>
+		  <li data-key="modal.height.list5">Certified safety equipment and procedures</li>
+		</ul>
+		<button class="btn" onclick="closeModal('height-modal'); openModal('quote-modal')" data-key="modal.height.button">Request Quote</button>
+	  </div>
+	</div>
 
     <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-        // Многоязычная поддержка
+        // Multilingual support
         const translations = {
+            en: {
+                "hero.title": "Professional Electrical Services for All Your Needs",
+                "hero.subtitle": "Certified specialists serving private clients and organizations in oil & gas, marine platforms, ships, and more. Competitive prices from a growing young company.",
+                "hero.button1": "Request a Callback",
+                "hero.button2": "Get a Quote",
+                "nav.services": "Services",
+                "nav.industries": "Industries",
+                "nav.team": "Team",
+                "nav.contact": "Contact",
+                "services.title": "Our Services",
+                "services.subtitle": "Comprehensive electrical solutions for various industries",
+                "services.service1.title": "Fiber Optic Cable Installation",
+                "services.service1.desc": "Professional installation of fiber optic cables for high-speed data transmission in various environments.",
+                "services.service2.title": "Generator Services",
+                "services.service2.desc": "Installation, setup and testing of Caterpillar, Volvo, Stamford, MTU generators and more.",
+                "services.service3.title": "Marine Electrical Systems",
+                "services.service3.desc": "Repair and maintenance of electrical equipment for yachts, boats and ships.",
+				"services.service4.title": "Height Electrical Installation",
+                "services.service4.desc": "Professional installation services at height with certified specialists and safety equipment.",
+                "services.button": "Learn More",
+				
+                "industries.title": "Industries We Serve",
+                "industries.subtitle": "Specialized electrical services for diverse sectors",
+                "industries.industry1": "Oil & Gas",
+                "industries.industry1.desc": "Electrical solutions for offshore platforms and refineries",
+                "industries.industry2": "Marine & Shipbuilding",
+                "industries.industry2.desc": "Electrical systems for vessels and shipyards",
+                "industries.industry3": "Satellite Systems",
+                "industries.industry3.desc": "Installation and configuration of satellite navigation",
+				               "industries.industry4": "Private Clients",
+        
+							   "industries.industry4.desc": "Custom solutions for homes and personal needs",
+                "industries.industry5": "Height Electrical Installation",
+                "industries.industry5.desc": "provide professional electrical installation services at height",
+                "team.title": "Our Team",
+                "team.subtitle": "Professionals with years of experience in electrical engineering",
+                "team.andrey.position": "Chief Electrical Engineer",
+                "team.andrey.experience": "25+ years experience",
+                "team.andrey.certificates": "Certifications: EN 353/361, Elektrofachkraft",
+                "team.oksana.position": "Project Manager",
+                "team.oksana.experience": "15+ years experience",
+                "team.oksana.specialization": "Specialization: personnel management, project acquisition",
+                "team.crew.title": "Installation Team",
+                "team.crew.description": "Certified electrical specialists",
+                "team.crew.certificates": "All technicians have required certifications",
+                "testimonials.title": "Client Testimonials",
+                "testimonials.subtitle": "What our clients say about our services",
+                "testimonials.testimonial1.text": "\"AG GLOBAL ELECTRIC provided excellent service for our offshore platform. Their team was professional and completed the work ahead of schedule.\"",
+                "testimonials.testimonial1.author": "- Marine Operations Manager",
+                "contact.title": "Contact Us",
+                "contact.subtitle": "Get in touch to discuss your electrical project",
+                "contact.info.title": "Contact Information",
+                "contact.address": "Klaipėda, Lithuania",
+                "contact.hours": "Mon-Fri: 8:00-17:00",
+                "contact.social.title": "Social Media",
+                "contact.form.title": "Contact Form",
+                "contact.form.name": "Your Name",
+                "contact.form.phone": "Phone",
+                "contact.form.email": "Email",
+                "contact.form.service": "Service Needed",
+                "contact.form.option1": "Fiber Optic Installation",
+                "contact.form.option2": "Generator Services",
+                "contact.form.option3": "Marine Electrical",
+                "contact.form.option4": "Private Client Services",
+                "contact.form.option5": "Height Electrical Installation",
+				 "contact.form.option6": "Other",
+                "contact.form.message": "Message",
+                "contact.form.button": "Send Request",
+                "contact.form.success": "Thank you! We'll contact you soon.",
+                "footer.services": "Services",
+                "footer.industries": "Industries",
+                "footer.team": "Team",
+                "footer.contact": "Contact",
+                "footer.privacy": "Privacy Policy",
+                "footer.rights": "All Rights Reserved.",
+                "footer.certificates": "Certifications: EN 353/361, ISO 9001",
+                "modal.callback.title": "Request a Callback",
+                "modal.callback.name": "Your Name",
+                "modal.callback.phone": "Phone",
+                "modal.callback.time": "Preferred Call Time",
+                "modal.callback.button": "Request Callback",
+                "modal.callback.success": "Thank you! We'll call you soon.",
+                "modal.quote.title": "Request a Quote",
+                "modal.quote.name": "Your Name",
+                "modal.quote.email": "Email",
+                "modal.quote.phone": "Phone",
+                "modal.quote.service": "Service Needed",
+                "modal.quote.option1": "Fiber Optic Installation",
+                "modal.quote.option2": "Generator Services",
+                "modal.quote.option3": "Marine Electrical",
+                "modal.quote.option4": "Private Client Services",
+                "modal.quote.option5": "Other",
+                "modal.quote.details": "Project Details",
+                "modal.quote.button": "Request Quote",
+                "modal.quote.success": "Thank you! We'll prepare your quote soon.",
+                "modal.service1.title": "Fiber Optic Cable Installation",
+                "modal.service1.desc": "Our professional fiber optic installation services include:",
+                "modal.service1.list1": "Design and planning of fiber optic networks",
+                "modal.service1.list2": "Installation of underground and aerial fiber cables",
+                "modal.service1.list3": "Splicing and termination services",
+                "modal.service1.list4": "Testing and certification of installed fiber",
+                "modal.service1.list5": "Marine and offshore fiber optic solutions",
+                "modal.service1.button": "Request Quote",
+                "modal.service2.title": "Generator Services",
+                "modal.service2.desc": "Comprehensive generator services for all makes and models:",
+                "modal.service2.list1": "Installation and commissioning of new generators",
+                "modal.service2.list2": "Routine maintenance and servicing",
+                "modal.service2.list3": "Diagnostics and troubleshooting",
+                "modal.service2.list4": "Load bank testing",
+                "modal.service2.list5": "Emergency repair services",
+                "modal.service2.button": "Request Quote",
+                "modal.service3.title": "Marine Electrical Systems",
+                "modal.service3.desc": "Specialized electrical services for marine applications:",
+                "modal.service3.list1": "Yacht and boat electrical system installation",
+                "modal.service3.list2": "Navigation and communication systems",
+                "modal.service3.list3": "DP (Dynamic Positioning) systems",
+                "modal.service3.list4": "Electrical troubleshooting and repairs",
+                "modal.service3.list5": "Custom electrical solutions",
+                "modal.service3.button": "Request Quote",
+				"modal.height.title": "Height Electrical Installation",
+"modal.height.desc": "Our certified specialists provide professional electrical installation services at height:",
+"modal.height.list1": "Industrial installations on high structures",
+"modal.height.list2": "Marine platform electrical systems",
+"modal.height.list3": "Telecommunication tower installations",
+"modal.height.list4": "Bridge and construction site electrical work",
+"modal.height.list5": "Certified safety equipment and procedures",
+"modal.height.button": "Request Quote",
+                "modal.private.title": "Private Client Services",
+                "modal.private.desc": "Custom electrical solutions for private clients:",
+                "modal.private.list1": "Terrace heating systems with temperature controllers",
+                "modal.private.list2": "Home automation and smart systems",
+                "modal.private.list3": "Custom lighting solutions",
+                "modal.private.list4": "Electrical safety inspections",
+                "modal.private.list5": "Energy efficiency solutions",
+                "modal.private.button": "Request Quote",
+                "chatbot.title": "AG GLOBAL ELECTRIC Assistant",
+                "chatbot.welcome": "Hello! How can I help you today? Here are some common questions:",
+                "chatbot.options": "1. What services do you offer?<br>2. How can I request a quote?<br>3. What industries do you serve?<br>4. How can I contact your team?",
+                "chatbot.placeholder": "Type your message...",
+                "chatbot.response1": "We offer a wide range of electrical services including fiber optic installation, generator services, marine electrical systems, and solutions for private clients.",
+                "chatbot.response2": "You can request a quote by filling out the form on our website or by calling us at +370 648 88657.",
+                "chatbot.response3": "We serve various industries including oil & gas, marine & shipbuilding, satellite systems, and private clients.",
+                "chatbot.response4": "You can contact our team by phone at +370 648 88657, by email at craer@yandex.ru, or by filling out the contact form on our website.",
+                "chatbot.default": "I'm sorry, I didn't understand your question. Please contact us directly at +370 648 88657 for assistance."
+            },
             ru: {
-                "hero.title": "Профессиональный электромонтаж на высоте",
-                "hero.subtitle": "Сертифицированные специалисты с допусками EN 353/361. Работаем по всей Литве.",
-                "hero.button": "Заказать звонок",
+                "hero.title": "Профессиональные электрические услуги для всех ваших нужд",
+                "hero.subtitle": "Сертифицированные специалисты, обслуживающие частных клиентов и организации в нефтегазовой отрасли, на морских платформах, судах и не только. Конкурентоспособные цены от молодой развивающейся компании.",
+                "hero.button1": "Заказать звонок",
+                "hero.button2": "Получить предложение",
                 "nav.services": "Услуги",
+                "nav.industries": "Отрасли",
                 "nav.team": "Команда",
-                "nav.projects": "Проекты",
                 "nav.contact": "Контакты",
                 "services.title": "Наши услуги",
-                "services.subtitle": "Полный спектр электромонтажных работ на высоте",
-                "services.service1.title": "Монтаж электрооборудования",
-                "services.service1.desc": "Профессиональный монтаж электрощитов, кабельных линий и другого оборудования на высоте.",
-                "services.service2.title": "Ремонтные работы",
-                "services.service2.desc": "Диагностика и ремонт электрооборудования на промышленных объектах и высотных зданиях.",
-                "services.service3.title": "Техническое обслуживание",
-                "services.service3.desc": "Плановые проверки и профилактические работы для электроустановок.",
-                "services.button": "Подробнее",
+                "services.subtitle": "Комплексные электрические решения для различных отраслей",
+                "services.service1.title": "Прокладка оптоволоконных кабелей",
+                "services.service1.desc": "Профессиональная прокладка оптоволоконных кабелей для высокоскоростной передачи данных в различных средах.",
+                "services.service2.title": "Обслуживание генераторов",
+                "services.service2.desc": "Установка, настройка и тестирование генераторов Caterpillar, Volvo, Stamford, MTU и других.",
+                "services.service3.title": "Морские электрические системы",
+                "services.service3.desc": "Ремонт и обслуживание электрического оборудования для яхт, катеров и судов.",
+				 "services.service4.title": "Электромонтажные работы на высоте",
+                "services.service4.desc": "Ремонт, установка, обслуживание электрического оборудования на высоте.",
+				 "services.service5.title": "Услуги для частных клиентов",
+            
+				 "services.service5.desc": "Индивидуальные электрические решения для частных клиентов",
+				
+				 "services.button": "Подробнее",
+                "industries.title": "Отрасли, которые мы обслуживаем",
+                "industries.subtitle": "Специализированные электрические услуги для различных секторов",
+                "industries.industry1": "Нефть и газ",
+                "industries.industry1.desc": "Электрические решения для морских платформ и нефтеперерабатывающих заводов",
+                "industries.industry2": "Морской и судостроительный",
+                "industries.industry2.desc": "Электрические системы для судов и верфей",
+                "industries.industry3": "Спутниковые системы",
+                "industries.industry3.desc": "Установка и настройка спутниковой навигации",
+                "industries.industry4": "Частные клиенты",
+                "industries.industry4.desc": "Индивидуальные решения для домов и личных нужд",
+				"industries.industry5": "Профессиональные монтажные услуги на высоте",
+				"industries.industry5.desc": "Сертифицированные специалисты и оборудование",
                 "team.title": "Наша команда",
-                "team.subtitle": "Профессионалы с многолетним опытом работы",
-                "team.andrey.position": "Главный инженер",
-                "team.andrey.experience": "15+ лет опыта",
+                "team.subtitle": "Профессионалы с многолетним опытом в электротехнике",
+                "team.andrey.position": "Главный инженер-электрик",
+                "team.andrey.experience": "Опыт работы 25+ лет",
                 "team.andrey.certificates": "Сертификаты: EN 353/361, Elektrofachkraft",
                 "team.oksana.position": "Менеджер проектов",
-                "team.oksana.experience": "10+ лет опыта",
-                "team.oksana.specialization": "Специализация: работа с персоналом, поиск проектов",
+                "team.oksana.experience": "Опыт работы 10+ лет",
+                "team.oksana.specialization": "Специализация: управление персоналом, поиск проектов",
                 "team.crew.title": "Монтажная бригада",
-                "team.crew.description": "Квалифицированные специалисты",
-                "team.crew.certificates": "Все сотрудники имеют необходимые сертификаты",
-                "projects.title": "Наши проекты",
-                "projects.subtitle": "Реализованные работы в различных отраслях",
-                "projects.project1.title": "Промышленный объект",
-                "projects.project1.desc": "Полный цикл электромонтажных работ на производственном предприятии.",
-                "projects.project2.title": "Жилой комплекс",
-                "projects.project2.desc": "Монтаж электрооборудования в многоэтажном жилом доме.",
-                "projects.project3.title": "Телекоммуникации",
-                "projects.project3.desc": "Установка оборудования на телекоммуникационных вышках.",
-                "projects.button": "Подробнее",
-                "contact.title": "Контакты",
-                "contact.subtitle": "Свяжитесь с нами для обсуждения вашего проекта",
+                "team.crew.description": "Сертифицированные специалисты-электрики",
+                "team.crew.certificates": "Все техники имеют необходимые сертификаты",
+                "testimonials.title": "Отзывы клиентов",
+                "testimonials.subtitle": "Что говорят наши клиенты о наших услугах",
+                "testimonials.testimonial1.text": "\"AG GLOBAL ELECTRIC предоставили отличные услуги для нашей морской платформы. Их команда была профессиональной и завершила работу раньше срока.\"",
+                "testimonials.testimonial1.author": "- Менеджер морских операций",
+                "contact.title": "Свяжитесь с нами",
+                "contact.subtitle": "Свяжитесь с нами, чтобы обсудить ваш электрический проект",
                 "contact.info.title": "Контактная информация",
-                "contact.address": "г. Клайпеда, ул. Электросети, 15",
+                "contact.address": "Клайпеда, Литва",
                 "contact.hours": "Пн-Пт: 8:00-17:00",
                 "contact.social.title": "Социальные сети",
-                "contact.form.title": "Форма обратной связи",
+                "contact.form.title": "Контактная форма",
                 "contact.form.name": "Ваше имя",
                 "contact.form.phone": "Телефон",
                 "contact.form.email": "Email",
-                "contact.form.service": "Интересующая услуга",
-                "contact.form.option1": "Монтаж электрооборудования",
-                "contact.form.option2": "Ремонтные работы",
-                "contact.form.option3": "Техническое обслуживание",
-                "contact.form.option4": "Другое",
+                "contact.form.service": "Необходимая услуга",
+                "contact.form.option1": "Прокладка оптоволокна",
+                "contact.form.option2": "Обслуживание генераторов",
+                "contact.form.option3": "Морские электрические системы",
+                "contact.form.option4": "Услуги для частных клиентов",
+                "contact.form.option5": "Другое",
                 "contact.form.message": "Сообщение",
                 "contact.form.button": "Отправить запрос",
+                "contact.form.success": "Спасибо! Мы свяжемся с вами в ближайшее время.",
                 "footer.services": "Услуги",
+                "footer.industries": "Отрасли",
                 "footer.team": "Команда",
-                "footer.projects": "Проекты",
                 "footer.contact": "Контакты",
                 "footer.privacy": "Политика конфиденциальности",
                 "footer.rights": "Все права защищены.",
@@ -1059,217 +1554,147 @@
                 "modal.callback.title": "Заказать звонок",
                 "modal.callback.name": "Ваше имя",
                 "modal.callback.phone": "Телефон",
-                "modal.callback.time": "Удобное время для звонка",
+                "modal.callback.time": "Предпочтительное время звонка",
                 "modal.callback.button": "Заказать звонок",
-                "modal.service1.title": "Монтаж электрооборудования",
-                "modal.service1.desc": "Мы предлагаем полный комплекс услуг по монтажу электрооборудования на высоте:",
-                "modal.service1.list1": "Установка электрощитов и распределительных устройств",
-                "modal.service1.list2": "Прокладка кабельных линий",
-                "modal.service1.list3": "Монтаж осветительного оборудования",
-                "modal.service1.list4": "Установка систем заземления",
-                "modal.service1.button": "Заказать услугу",
-                "modal.service2.title": "Ремонтные работы",
-                "modal.service2.desc": "Наши специалисты выполняют все виды ремонтных работ на высоте:",
-                "modal.service2.list1": "Диагностика неисправностей",
-                "modal.service2.list2": "Ремонт электрооборудования",
-                "modal.service2.list3": "Замена изношенных элементов",
-                "modal.service2.list4": "Аварийные работы",
-                "modal.service2.button": "Заказать услугу",
-                "modal.service3.title": "Техническое обслуживание",
-                "modal.service3.desc": "Регулярное техническое обслуживание - залог бесперебойной работы электрооборудования:",
-                "modal.service3.list1": "Плановые проверки",
-                "modal.service3.list2": "Профилактические работы",
-                "modal.service3.list3": "Тестирование оборудования",
-                "modal.service3.list4": "Составление отчетов",
-                "modal.service3.button": "Заказать услугу",
-                "modal.project1.title": "Промышленный объект",
-                "modal.project1.desc": "Полный цикл электромонтажных работ на производственном предприятии:",
-                "modal.project1.list1": "Монтаж силовых щитов",
-                "modal.project1.list2": "Прокладка кабельных трасс",
-                "modal.project1.list3": "Установка осветительных систем",
-                "modal.project1.list4": "Подключение промышленного оборудования",
-                "modal.project1.button": "Заказать услугу",
-                "modal.project2.title": "Жилой комплекс",
-                "modal.project2.desc": "Монтаж электрооборудования в многоэтажном жилом доме:",
-                "modal.project2.list1": "Установка распределительных щитов",
-                "modal.project2.list2": "Прокладка электропроводки",
-                "modal.project2.list3": "Монтаж системы освещения",
-                "modal.project2.list4": "Подключение бытовой техники",
-                "modal.project2.button": "Заказать услугу",
-                "modal.project3.title": "Телекоммуникации",
-                "modal.project3.desc": "Установка оборудования на телекоммуникационных вышках:",
-                "modal.project3.list1": "Монтаж антенных систем",
-                "modal.project3.list2": "Прокладка кабельных линий",
-                "modal.project3.list3": "Установка передающего оборудования",
-                "modal.project3.list4": "Тестирование и настройка систем",
-                "modal.project3.button": "Заказать услугу"
-            },
-            en: {
-                "hero.title": "Professional Electrical Installation at Height",
-                "hero.subtitle": "Certified specialists with EN 353/361 permits. Working throughout Lithuania.",
-                "hero.button": "Request a Callback",
-                "nav.services": "Services",
-                "nav.team": "Team",
-                "nav.projects": "Projects",
-                "nav.contact": "Contact",
-                "services.title": "Our Services",
-                "services.subtitle": "Full range of electrical installation works at height",
-                "services.service1.title": "Electrical Equipment Installation",
-                "services.service1.desc": "Professional installation of switchboards, cable lines and other equipment at height.",
-                "services.service2.title": "Repair Works",
-                "services.service2.desc": "Diagnostics and repair of electrical equipment at industrial facilities and high-rise buildings.",
-                "services.service3.title": "Technical Maintenance",
-                "services.service3.desc": "Scheduled inspections and preventive maintenance for electrical installations.",
-                "services.button": "Learn More",
-                "team.title": "Our Team",
-                "team.subtitle": "Professionals with years of experience",
-                "team.andrey.position": "Chief Engineer",
-                "team.andrey.experience": "15+ years of experience",
-                "team.andrey.certificates": "Certificates: EN 353/361, Elektrofachkraft",
-                "team.oksana.position": "Project Manager",
-                "team.oksana.experience": "10+ years of experience",
-                "team.oksana.specialization": "Specialization: personnel management, project acquisition",
-                "team.crew.title": "Installation Team",
-                "team.crew.description": "Qualified specialists",
-                "team.crew.certificates": "All employees have necessary certificates",
-                "projects.title": "Our Projects",
-                "projects.subtitle": "Completed works in various industries",
-                "projects.project1.title": "Industrial Facility",
-                "projects.project1.desc": "Full cycle of electrical installation works at a production enterprise.",
-                "projects.project2.title": "Residential Complex",
-                "projects.project2.desc": "Installation of electrical equipment in a multi-story residential building.",
-                "projects.project3.title": "Telecommunications",
-                "projects.project3.desc": "Equipment installation on telecommunication towers.",
-                "projects.button": "Learn More",
-                "contact.title": "Contact Us",
-                "contact.subtitle": "Get in touch to discuss your project",
-                "contact.info.title": "Contact Information",
-                "contact.address": "Klaipeda, Elektros St. 15",
-                "contact.hours": "Mon-Fri: 8:00-17:00",
-                "contact.social.title": "Social Networks",
-                "contact.form.title": "Contact Form",
-                "contact.form.name": "Your Name",
-                "contact.form.phone": "Phone",
-                "contact.form.email": "Email",
-                "contact.form.service": "Service of Interest",
-                "contact.form.option1": "Electrical Equipment Installation",
-                "contact.form.option2": "Repair Works",
-                "contact.form.option3": "Technical Maintenance",
-                "contact.form.option4": "Other",
-                "contact.form.message": "Message",
-                "contact.form.button": "Send Request",
-                "footer.services": "Services",
-                "footer.team": "Team",
-                "footer.projects": "Projects",
-                "footer.contact": "Contact",
-                "footer.privacy": "Privacy Policy",
-                "footer.rights": "All Rights Reserved.",
-                "footer.certificates": "Certificates: EN 353/361, ISO 9001",
-                "modal.callback.title": "Request a Callback",
-                "modal.callback.name": "Your Name",
-                "modal.callback.phone": "Phone",
-                "modal.callback.time": "Convenient Time for Call",
-                "modal.callback.button": "Request Callback",
-                "modal.service1.title": "Electrical Equipment Installation",
-                "modal.service1.desc": "We offer a full range of services for installing electrical equipment at height:",
-                "modal.service1.list1": "Installation of switchboards and distribution devices",
-                "modal.service1.list2": "Laying cable lines",
-                "modal.service1.list3": "Installation of lighting equipment",
-                "modal.service1.list4": "Installation of grounding systems",
-                "modal.service1.button": "Order Service",
-                "modal.service2.title": "Repair Works",
-                "modal.service2.desc": "Our specialists perform all types of repair work at height:",
-                "modal.service2.list1": "Fault diagnostics",
-                "modal.service2.list2": "Repair of electrical equipment",
-                "modal.service2.list3": "Replacement of worn components",
-                "modal.service2.list4": "Emergency works",
-                "modal.service2.button": "Order Service",
-                "modal.service3.title": "Technical Maintenance",
-                "modal.service3.desc": "Regular technical maintenance is the key to uninterrupted operation of electrical equipment:",
-                "modal.service3.list1": "Scheduled inspections",
-                "modal.service3.list2": "Preventive maintenance",
-                "modal.service3.list3": "Equipment testing",
-                "modal.service3.list4": "Report preparation",
-                "modal.service3.button": "Order Service",
-                "modal.project1.title": "Industrial Facility",
-                "modal.project1.desc": "Full cycle of electrical installation works at a production enterprise:",
-                "modal.project1.list1": "Installation of power panels",
-                "modal.project1.list2": "Laying cable routes",
-                "modal.project1.list3": "Installation of lighting systems",
-                "modal.project1.list4": "Connection of industrial equipment",
-                "modal.project1.button": "Order Service",
-                "modal.project2.title": "Residential Complex",
-                "modal.project2.desc": "Installation of electrical equipment in a multi-story residential building:",
-                "modal.project2.list1": "Installation of distribution boards",
-                "modal.project2.list2": "Wiring installation",
-                "modal.project2.list3": "Lighting system installation",
-                "modal.project2.list4": "Connection of household appliances",
-                "modal.project2.button": "Order Service",
-                "modal.project3.title": "Telecommunications",
-                "modal.project3.desc": "Equipment installation on telecommunication towers:",
-                "modal.project3.list1": "Installation of antenna systems",
-                "modal.project3.list2": "Laying cable lines",
-                "modal.project3.list3": "Installation of transmitting equipment",
-                "modal.project3.list4": "System testing and configuration",
-                "modal.project3.button": "Order Service"
+                "modal.callback.success": "Спасибо! Мы перезвоним вам в ближайшее время.",
+                "modal.quote.title": "Получить предложение",
+                "modal.quote.name": "Ваше имя",
+                "modal.quote.email": "Email",
+                "modal.quote.phone": "Телефон",
+                "modal.quote.service": "Необходимая услуга",
+                "modal.quote.option1": "Прокладка оптоволокна",
+                "modal.quote.option2": "Обслуживание генераторов",
+                "modal.quote.option3": "Морские электрические системы",
+                "modal.quote.option4": "Услуги для частных клиентов",
+                "modal.quote.option5": "Другое",
+                "modal.quote.details": "Детали проекта",
+                "modal.quote.button": "Запросить предложение",
+                "modal.quote.success": "Спасибо! Мы подготовим ваше предложение в ближайшее время.",
+                "modal.service1.title": "Прокладка оптоволоконных кабелей",
+                "modal.service1.desc": "Наши профессиональные услуги по прокладке оптоволокна включают:",
+                "modal.service1.list1": "Проектирование и планирование оптоволоконных сетей",
+                "modal.service1.list2": "Прокладка подземных и воздушных оптоволоконных кабелей",
+                "modal.service1.list3": "Сращивание и оконцевание кабелей",
+                "modal.service1.list4": "Тестирование и сертификация установленного оптоволокна",
+                "modal.service1.list5": "Морские и оффшорные решения для оптоволокна",
+                "modal.service1.button": "Запросить предложение",
+                "modal.service2.title": "Обслуживание генераторов",
+                "modal.service2.desc": "Комплексные услуги по обслуживанию генераторов всех марок и моделей:",
+                "modal.service2.list1": "Установка и ввод в эксплуатацию новых генераторов",
+                "modal.service2.list2": "Регламентное техническое обслуживание",
+                "modal.service2.list3": "Диагностика и устранение неисправностей",
+                "modal.service2.list4": "Тестирование под нагрузкой",
+                "modal.service2.list5": "Аварийный ремонт",
+                "modal.service2.button": "Запросить предложение",
+                "modal.service3.title": "Морские электрические системы",
+                "modal.service3.desc": "Специализированные электрические услуги для морского применения:",
+                "modal.service3.list1": "Установка электрических систем для яхт и катеров",
+                "modal.service3.list2": "Навигационные и коммуникационные системы",
+                "modal.service3.list3": "Системы динамического позиционирования (DP)",
+                "modal.service3.list4": "Диагностика и ремонт электрики",
+                "modal.service3.list5": "Индивидуальные электрические решения",
+                "modal.service3.button": "Запросить предложение",
+				"modal.height.title": "Электромонтажные работы на высоте",
+"modal.height.desc": "Наши сертифицированные специалисты предоставляют профессиональные услуги по электромонтажу на высоте:",
+"modal.height.list1": "Промышленные установки на высоких конструкциях",
+"modal.height.list2": "Электрические системы морских платформ",
+"modal.height.list3": "Установки на телекоммуникационных вышках",
+"modal.height.list4": "Электромонтажные работы на мостах и строительных площадках",
+"modal.height.list5": "Сертифицированное оборудование и процедуры безопасности",
+"modal.height.button": "Запросить предложение",
+                "modal.private.title": "Услуги для частных клиентов",
+                "modal.private.desc": "Индивидуальные электрические решения для частных клиентов:",
+                "modal.private.list1": "Системы обогрева террас с контроллерами температуры",
+                "modal.private.list2": "Домашняя автоматизация и умные системы",
+                "modal.private.list3": "Индивидуальные решения освещения",
+                "modal.private.list4": "Проверки электрической безопасности",
+                "modal.private.list5": "Решения для энергоэффективности",
+                "modal.private.button": "Запросить предложение",
+                "chatbot.title": "Помощник AG GLOBAL ELECTRIC",
+                "chatbot.welcome": "Здравствуйте! Чем я могу вам помочь сегодня? Вот несколько распространенных вопросов:",
+                "chatbot.options": "1. Какие услуги вы предлагаете?<br>2. Как я могу запросить предложение?<br>3. Какие отрасли вы обслуживаете?<br>4. Как я могу связаться с вашей командой?",
+                "chatbot.placeholder": "Введите ваше сообщение...",
+                "chatbot.response1": "Мы предлагаем широкий спектр электрических услуг, включая прокладку оптоволокна, обслуживание генераторов, морские электрические системы и решения для частных клиентов.",
+                "chatbot.response2": "Вы можете запросить предложение, заполнив форму на нашем сайте или позвонив нам по номеру +370 648 88657.",
+                "chatbot.response3": "Мы обслуживаем различные отрасли, включая нефть и газ, морскую и судостроительную промышленность, спутниковые системы и частных клиентов.",
+                "chatbot.response4": "Вы можете связаться с нашей командой по телефону +370 648 88657, по электронной почте craer@yandex.ru или заполнив контактную форму на нашем сайте.",
+                "chatbot.default": "Извините, я не понял ваш вопрос. Пожалуйста, свяжитесь с нами напрямую по номеру +370 648 88657 для получения помощи."
             },
             lt: {
-                "hero.title": "Profesionali elektros įrangos montavimas aukštyje",
-                "hero.subtitle": "Sertifikuoti specialistai su EN 353/361 leidimais. Dirbame visoje Lietuvoje.",
-                "hero.button": "Užsakyti skambutį",
+                "hero.title": "Profesionalios elektros paslaugos visiems jūsų poreikiams",
+                "hero.subtitle": "Sertifikuoti specialistai, teikiantys paslaugas privačiems klientams ir organizacijoms naftos ir dujų, jūrų platformų, laivų ir kt. srityse. Konkurencingos kainos iš augančios jaunos įmonės.",
+                "hero.button1": "Užsakyti skambutį",
+                "hero.button2": "Gauti pasiūlymą",
                 "nav.services": "Paslaugos",
+                "nav.industries": "Pramonės šakos",
                 "nav.team": "Komanda",
-                "nav.projects": "Projektai",
                 "nav.contact": "Kontaktai",
                 "services.title": "Mūsų paslaugos",
-                "services.subtitle": "Visos elektros montavimo darbų aukštyje paslaugos",
-                "services.service1.title": "Elektros įrangos montavimas",
-                "services.service1.desc": "Profesionalus elektros skydų, kabelių linijų ir kitos įrangos montavimas aukštyje.",
-                "services.service2.title": "Remonto darbai",
-                "services.service2.desc": "Elektros įrangos diagnostika ir remontas pramonės objektuose ir aukštuose pastatuose.",
-                "services.service3.title": "Techninė priežiūra",
-                "services.service3.desc": "Planinės patikros ir profilaktiniai elektros įrenginių darbai.",
+                "services.subtitle": "Išsamūs elektros sprendimai įvairioms pramonės šakoms",
+                "services.service1.title": "Pluoštinio kabelio montavimas",
+                "services.service1.desc": "Profesionalus pluoštinių kabelių montavimas didelio greičio duomenų perdavimui įvairiose aplinkose.",
+                "services.service2.title": "Generatorių aptarnavimas",
+                "services.service2.desc": "Caterpillar, Volvo, Stamford, MTU ir kitų generatorių montavimas, nustatymas ir testavimas.",
+                "services.service3.title": "Jūrų elektros sistemos",
+                "services.service3.desc": "Jachtų, valčių ir laivų elektros įrangos remontas ir priežiūra.",
+				"services.service4.title": "Elektros instaliacijos aukštyje",
+				
+"services.service4.desc": "Profesionalios montavimo paslaugos aukštyje su sertifikuotais specialistais ir saugos įranga.",
+				 "services.service5.title": "Privatūs klientai",
+            
+		
+				 "services.service5.desc": "Individualūs sprendimai namams ir asmeniniams poreikiams",
+				
                 "services.button": "Sužinoti daugiau",
+                "industries.title": "Pramonės šakos, kurioms teikiame paslaugas",
+                "industries.subtitle": "Specializuotos elektros paslaugos įvairioms pramonės šakoms",
+                "industries.industry1": "Nafta ir dujos",
+                "industries.industry1.desc": "Elektros sprendimai jūrų platformoms ir naftos perdirbimo įmonėms",
+                "industries.industry2": "Jūrų ir laivų statyba",
+                "industries.industry2.desc": "Elektros sistemos laivams ir laivų statykloms",
+                "industries.industry3": "Palydovinės sistemos",
+                "industries.industry3.desc": "Palydovinės navigacijos sistemos montavimas ir nustatymas",
+                "industries.industry4": "Privatūs klientai",
+                "industries.industry4.desc": "Individualūs sprendimai namams ir asmeniniams poreikiams",
+				"industries.industry5": "Elektros instaliacijos aukštyje",
+				"industries.industry5.desc": "Mūsų sertifikuoti specialistai teikia profesionalias elektros montavimo paslaugas aukštyje",
                 "team.title": "Mūsų komanda",
-                "team.subtitle": "Patyrę profesionalai",
-                "team.andrey.position": "Vyriausiasis inžinierius",
-                "team.andrey.experience": "15+ metų patirtis",
+                "team.subtitle": "Profesionalai su daugiamete patirtimi elektros inžinerijoje",
+                "team.andrey.position": "Vyriausiasis elektros inžinierius",
+                "team.andrey.experience": "25+ metų patirtis",
                 "team.andrey.certificates": "Sertifikatai: EN 353/361, Elektrofachkraft",
                 "team.oksana.position": "Projektų vadovė",
                 "team.oksana.experience": "10+ metų patirtis",
                 "team.oksana.specialization": "Specializacija: personalo valdymas, projektų paieška",
-                "team.crew.title": "Montavimo brigada",
-                "team.crew.description": "Kvalifikuoti specialistai",
-                "team.crew.certificates": "Visi darbuotojai turi reikiamus sertifikatus",
-                "projects.title": "Mūsų projektai",
-                "projects.subtitle": "Įgyvendinti darbai įvairiose srityse",
-                "projects.project1.title": "Pramonės objektas",
-                "projects.project1.desc": "Visas elektros montavimo darbų ciklas gamybos įmonėje.",
-                "projects.project2.title": "Gyvenamasis kompleksas",
-                "projects.project2.desc": "Elektros įrangos montavimas daugiaaukščiame gyvenamajame name.",
-                "projects.project3.title": "Ryšio priemonės",
-                "projects.project3.desc": "Įrangos montavimas telekomunikacijų bokštuose.",
-                "projects.button": "Sužinoti daugiau",
-                "contact.title": "Kontaktai",
-                "contact.subtitle": "Susisiekite su mumis aptarti savo projektą",
+                "team.crew.title": "Montavimo komanda",
+                "team.crew.description": "Sertifikuoti elektros specialistai",
+                "team.crew.certificates": "Visi technikai turi reikiamus sertifikatus",
+                "testimonials.title": "Klientų atsiliepimai",
+                "testimonials.subtitle": "Ką mūsų klientai sako apie mūsų paslaugas",
+                "testimonials.testimonial1.text": "\"AG GLOBAL ELECTRIC suteikė puikias paslaugas mūsų jūrų platformai. Jų komanda buvo profesionaliai ir darbus atliko anksčiau nei buvo numatyta.\"",
+                "testimonials.testimonial1.author": "- Jūrų operacijų vadovas",
+                "contact.title": "Susisiekite su mumis",
+                "contact.subtitle": "Susisiekite su mumis aptarti jūsų elektros projekto",
                 "contact.info.title": "Kontaktinė informacija",
-                "contact.address": "Klaipėda, Elektros g. 15",
+                "contact.address": "Klaipėda, Lietuva",
                 "contact.hours": "Pirmadienis-Penktadienis: 8:00-17:00",
                 "contact.social.title": "Socialiniai tinklai",
-                "contact.form.title": "Grįžtamojo ryšio forma",
+                "contact.form.title": "Kontaktinė forma",
                 "contact.form.name": "Jūsų vardas",
                 "contact.form.phone": "Telefonas",
                 "contact.form.email": "El. paštas",
-                "contact.form.service": "Dominanti paslauga",
-                "contact.form.option1": "Elektros įrangos montavimas",
-                "contact.form.option2": "Remonto darbai",
-                "contact.form.option3": "Techninė priežiūra",
-                "contact.form.option4": "Kita",
+                "contact.form.service": "Reikalinga paslauga",
+                "contact.form.option1": "Pluoštinio kabelio montavimas",
+                "contact.form.option2": "Generatorių aptarnavimas",
+                "contact.form.option3": "Jūrų elektros sistemos",
+                "contact.form.option4": "Paslaugos privačiems klientams",
+                "contact.form.option5": "Kita",
                 "contact.form.message": "Žinutė",
                 "contact.form.button": "Siųsti užklausą",
+                "contact.form.success": "Ačiū! Susisieksime su jumis netrukus.",
                 "footer.services": "Paslaugos",
+                "footer.industries": "Pramonės šakos",
                 "footer.team": "Komanda",
-                "footer.projects": "Projektai",
                 "footer.contact": "Kontaktai",
                 "footer.privacy": "Privatumo politika",
                 "footer.rights": "Visos teisės saugomos.",
@@ -1277,108 +1702,154 @@
                 "modal.callback.title": "Užsakyti skambutį",
                 "modal.callback.name": "Jūsų vardas",
                 "modal.callback.phone": "Telefonas",
-                "modal.callback.time": "Patogus skambučio laikas",
+                "modal.callback.time": "Pageidaujamas skambučio laikas",
                 "modal.callback.button": "Užsakyti skambutį",
-                "modal.service1.title": "Elektros įrangos montavimas",
-                "modal.service1.desc": "Siūlome visą elektros įrangos montavimo aukštyje paslaugų spektrą:",
-                "modal.service1.list1": "Elektros skydų ir paskirstymo įrenginių montavimas",
-                "modal.service1.list2": "Kabelių linijų klojimas",
-                "modal.service1.list3": "Apšvietimo įrangos montavimas",
-                "modal.service1.list4": "Įžeminimo sistemų montavimas",
-                "modal.service1.button": "Užsakyti paslaugą",
-                "modal.service2.title": "Remonto darbai",
-                "modal.service2.desc": "Mūsų specialistai atlieka visų rūšių remonto darbus aukštyje:",
-                "modal.service2.list1": "Gedimų diagnostika",
-                "modal.service2.list2": "Elektros įrangos remontas",
-                "modal.service2.list3": "Susiradusių elementų keitimas",
-                "modal.service2.list4": "Avariniai darbai",
-                "modal.service2.button": "Užsakyti paslaugą",
-                "modal.service3.title": "Techninė priežiūra",
-                "modal.service3.desc": "Reguliari techninė priežiūra - elektros įrangos nenutrūkstamo veikimo garantas:",
-                "modal.service3.list1": "Planinės patikros",
-                "modal.service3.list2": "Profilaktiniai darbai",
-                "modal.service3.list3": "Įrangos testavimas",
-                "modal.service3.list4": "Ataskaitų rengimas",
-                "modal.service3.button": "Užsakyti paslaugą",
-                "modal.project1.title": "Pramonės objektas",
-                "modal.project1.desc": "Visas elektros montavimo darbų ciklas gamybos įmonėje:",
-                "modal.project1.list1": "Galingųjų skydų montavimas",
-                "modal.project1.list2": "Kabelių trasų klojimas",
-                "modal.project1.list3": "Apšvietimo sistemų montavimas",
-                "modal.project1.list4": "Pramoninės įrangos prijungimas",
-                "modal.project1.button": "Užsakyti paslaugą",
-                "modal.project2.title": "Gyvenamasis kompleksas",
-                "modal.project2.desc": "Elektros įrangos montavimas daugiaaukščiame gyvenamajame name:",
-                "modal.project2.list1": "Paskirstymo skydų montavimas",
-                "modal.project2.list2": "Elektros instaliacijos klojimas",
-                "modal.project2.list3": "Apšvietimo sistemos montavimas",
-                "modal.project2.list4": "Buitinės technikos prijungimas",
-                "modal.project2.button": "Užsakyti paslaugą",
-                "modal.project3.title": "Ryšio priemonės",
-                "modal.project3.desc": "Įrangos montavimas telekomunikacijų bokštuose:",
-                "modal.project3.list1": "Antenų sistemų montavimas",
-                "modal.project3.list2": "Kabelių linijų klojimas",
-                "modal.project3.list3": "Siųstuvų įrangos montavimas",
-                "modal.project3.list4": "Sistemų testavimas ir konfigūravimas",
-                "modal.project3.button": "Užsakyti paslaugą"
+                "modal.callback.success": "Ačiū! Netrukus jums paskambinsime.",
+                "modal.quote.title": "Gauti pasiūlymą",
+                "modal.quote.name": "Jūsų vardas",
+                "modal.quote.email": "El. paštas",
+                "modal.quote.phone": "Telefonas",
+                "modal.quote.service": "Reikalinga paslauga",
+                "modal.quote.option1": "Pluoštinio kabelio montavimas",
+                "modal.quote.option2": "Generatorių aptarnavimas",
+                "modal.quote.option3": "Jūrų elektros sistemos",
+                "modal.quote.option4": "Paslaugos privačiems klientams",
+                "modal.quote.option5": "Kita",
+                "modal.quote.details": "Projekto detalės",
+                "modal.quote.button": "Užsakyti pasiūlymą",
+                "modal.quote.success": "Ačiū! Netrukus parengsime jūsų pasiūlymą.",
+                "modal.service1.title": "Pluoštinio kabelio montavimas",
+                "modal.service1.desc": "Mūsų profesionalios pluoštinio kabelio montavimo paslaugos apima:",
+                "modal.service1.list1": "Pluoštinių tinklų projektavimas ir planavimas",
+                "modal.service1.list2": "Požeminių ir oro linijų pluoštinių kabelių montavimas",
+                "modal.service1.list3": "Kabelių sujungimas ir užbaigimas",
+                "modal.service1.list4": "Įrengto pluoštinio kabelio testavimas ir sertifikavimas",
+                "modal.service1.list5": "Jūrų ir vandenynų pluoštinio kabelio sprendimai",
+                "modal.service1.button": "Užsakyti pasiūlymą",
+                "modal.service2.title": "Generatorių aptarnavimas",
+                "modal.service2.desc": "Išsamios generatorių aptarnavimo paslaugos visų markių ir modelių generatoriams:",
+                "modal.service2.list1": "Naujų generatorių montavimas ir paleidimas",
+                "modal.service2.list2": "Reguliarus techninis aptarnavimas",
+                "modal.service2.list3": "Trikčių diagnostika ir šalinimas",
+                "modal.service2.list4": "Apkrovos testavimas",
+                "modal.service2.list5": "Avarinis remontas",
+                "modal.service2.button": "Užsakyti pasiūlymą",
+                "modal.service3.title": "Jūrų elektros sistemos",
+                "modal.service3.desc": "Specializuotos elektros paslaugos jūrų reikmėms:",
+                "modal.service3.list1": "Jachtų ir valčių elektros sistemų montavimas",
+                "modal.service3.list2": "Navigacinės ir ryšio sistemos",
+                "modal.service3.list3": "Dinaminio pozicionavimo (DP) sistemos",
+                "modal.service3.list4": "Elektros gedimų diagnostika ir remontas",
+                "modal.service3.list5": "Individualūs elektros sprendimai",
+                "modal.service3.button": "Užsakyti pasiūlymą",
+				"modal.height.title": "Elektros instaliacijos aukštyje",
+				
+"modal.height.desc": "Mūsų sertifikuoti specialistai teikia profesionalias elektros montavimo paslaugas aukštyje:",
+
+				"modal.height.list1": "Pramonės instaliacijos aukštuose statiniuose",
+
+				"modal.height.list2": "Jūrų platformų elektros sistemos",
+
+				"modal.height.list3": "Telekomunikacijų bokštų instaliacija",
+				
+"modal.height.list4": "Elektros darbai tiltuose ir statybvietėse",
+				
+"modal.height.list5": "Sertifikuota saugos įranga ir procedūros",
+
+				"modal.height.button": "Užsakyti pasiūlymą",
+                "modal.private.title": "Paslaugos privačiems klientams",
+                "modal.private.desc": "Individualūs elektros sprendimai privačiems klientams:",
+                "modal.private.list1": "Terasų šildymo sistemos su temperatūros valdikliais",
+                "modal.private.list2": "Namų automatizavimas ir išmaniosios sistemos",
+                "modal.private.list3": "Individualūs apšvietimo sprendimai",
+                "modal.private.list4": "Elektros saugos patikros",
+                "modal.private.list5": "Energijos vartojimo efektyvumo sprendimai",
+                "modal.private.button": "Užsakyti pasiūlymą",
+                "chatbot.title": "AG GLOBAL ELECTRIC asistentas",
+                "chatbot.welcome": "Sveiki! Kaip galėčiau jums padėti šiandien? Štai keletas dažniausiai užduodamų klausimų:",
+                "chatbot.options": "1. Kokias paslaugas jūs teikiate?<br>2. Kaip galiu užsakyti pasiūlymą?<br>3. Kokias pramonės šakas aptarnaujate?<br>4. Kaip galiu susisiekti su jūsų komanda?",
+                "chatbot.placeholder": "Įveskite savo žinutę...",
+                "chatbot.response1": "Mes teikiame platų elektros paslaugų spektrą, įskaitant pluoštinio kabelio montavimą, generatorių aptarnavimą, jūrų elektros sistemas ir sprendimus privačiems klientams.",
+                "chatbot.response2": "Jūs galite užsakyti pasiūlymą užpildę formą mūsų svetainėje arba paskambinę mums telefonu +370 648 88657.",
+                "chatbot.response3": "Mes aptarnaujame įvairias pramonės šakas, įskaitant naftos ir dujų, jūrų ir laivų statybos, palydovines sistemas ir privačius klientus.",
+                "chatbot.response4": "Jūs galite susisiekti su mūsų komanda telefonu +370 648 88657, el. paštu craer@yandex.ru arba užpildę kontaktinę formą mūsų svetainėje.",
+                "chatbot.default": "Atsiprašau, aš nesupratau jūsų klausimo. Prašome tiesiogiai susisiekti su mumis telefonu +370 648 88657 pagalbos gauti."
             },
             pl: {
-                "hero.title": "Profesjonalny montaż elektryczny na wysokości",
-                "hero.subtitle": "Certyfikowani specjaliści z uprawnieniami EN 353/361. Pracujemy na terenie całej Litwy.",
-                "hero.button": "Zamów rozmowę",
+                "hero.title": "Profesjonalne usługi elektryczne dla wszystkich Twoich potrzeb",
+                "hero.subtitle": "Certyfikowani specjaliści świadczący usługi dla klientów prywatnych i organizacji w branży naftowej i gazowej, na platformach morskich, statkach i nie tylko. Konkurencyjne ceny od rozwijającej się młodej firmy.",
+                "hero.button1": "Zamów rozmowę",
+                "hero.button2": "Otrzymaj wycenę",
                 "nav.services": "Usługi",
+                "nav.industries": "Branże",
                 "nav.team": "Zespół",
-                "nav.projects": "Projekty",
                 "nav.contact": "Kontakt",
                 "services.title": "Nasze usługi",
-                "services.subtitle": "Pełen zakres prac elektroinstalacyjnych na wysokości",
-                "services.service1.title": "Montaż urządzeń elektrycznych",
-                "services.service1.desc": "Profesjonalny montaż rozdzielnic, linii kablowych i innego sprzętu na wysokości.",
-                "services.service2.title": "Prace naprawcze",
-                "services.service2.desc": "Diagnostyka i naprawa urządzeń elektrycznych w obiektach przemysłowych i wysokich budynkach.",
-                "services.service3.title": "Konserwacja techniczna",
-                "services.service3.desc": "Planowane przeglądy i prace profilaktyczne dla instalacji elektrycznych.",
-                "services.button": "Dowiedz się więcej",
+                "services.subtitle": "Kompleksowe rozwiązania elektryczne dla różnych branż",
+                "services.service1.title": "Instalacja kabli światłowodowych",
+                "services.service1.desc": "Profesjonalna instalacja kabli światłowodowych do szybkiego przesyłu danych w różnych środowiskach.",
+                "services.service2.title": "Usługi dla generatorów",
+                "services.service2.desc": "Montaż, konfiguracja i testowanie generatorów Caterpillar, Volvo, Stamford, MTU i innych.",
+                "services.service3.title": "Systemy elektryczne dla marynarki",
+                "services.service3.desc": "Naprawa i konserwacja sprzętu elektrycznego dla jachtów, łodzi i statków.",
+				"services.service4.title": "Instalacje elektryczne na wysokości",
+                "services.service4.desc": "Profesjonalne usługi instalacyjne na wysokości z certyfikowanymi specjalistami i sprzętem bezpieczeństwa.",
+				 "services.service5.title": "Klienci prywatni",
+            
+	
+				 
+"services.service5.desc": "Niestandardowe rozwiązania dla domów i potrzeb osobistych",
+	
+				"services.button": "Dowiedz się więcej",
+                "industries.title": "Branże, którym służymy",
+                "industries.subtitle": "Specjalistyczne usługi elektryczne dla różnych sektorów",
+                "industries.industry1": "Ropa i gaz",
+                "industries.industry1.desc": "Rozwiązania elektryczne dla platform morskich i rafinerii",
+                "industries.industry2": "Marynarka i stocznie",
+                "industries.industry2.desc": "Systemy elektryczne dla statków i stoczni",
+                "industries.industry3": "Systemy satelitarne",
+                "industries.industry3.desc": "Instalacja i konfiguracja nawigacji satelitarnej",
+                "industries.industry4": "Klienci prywatni",
+                "industries.industry4.desc": "Niestandardowe rozwiązania dla domów i potrzeb osobistych",
+				 "industries.industry5": "Instalacje elektryczne na wysokości",
+                "industries.industry5.desc": "Instalacje elektryczne na wysokości",
                 "team.title": "Nasz zespół",
-                "team.subtitle": "Profesjonaliści z wieloletnim doświadczeniem",
-                "team.andrey.position": "Główny inżynier",
-                "team.andrey.experience": "15+ lat doświadczenia",
+                "team.subtitle": "Profesjonaliści z wieloletnim doświadczeniem w elektrotechnice",
+                "team.andrey.position": "Główny inżynier elektryk",
+                "team.andrey.experience": "25+ lat doświadczenia",
                 "team.andrey.certificates": "Certyfikaty: EN 353/361, Elektrofachkraft",
                 "team.oksana.position": "Kierownik projektów",
                 "team.oksana.experience": "10+ lat doświadczenia",
                 "team.oksana.specialization": "Specjalizacja: zarządzanie personelem, pozyskiwanie projektów",
                 "team.crew.title": "Zespół montażowy",
-                "team.crew.description": "Wykwalifikowani specjaliści",
-                "team.crew.certificates": "Wszyscy pracownicy posiadają niezbędne certyfikaty",
-                "projects.title": "Nasze projekty",
-                "projects.subtitle": "Zrealizowane prace w różnych branżach",
-                "projects.project1.title": "Obiekt przemysłowy",
-                "projects.project1.desc": "Pełny cykl prac elektroinstalacyjnych w przedsiębiorstwie produkcyjnym.",
-                "projects.project2.title": "Osiedle mieszkaniowe",
-                "projects.project2.desc": "Montaż urządzeń elektrycznych w wielopiętrowym budynku mieszkalnym.",
-                "projects.project3.title": "Telekomunikacja",
-                "projects.project3.desc": "Montaż sprzętu na wieżach telekomunikacyjnych.",
-                "projects.button": "Dowiedz się więcej",
-                "contact.title": "Kontakt",
-                "contact.subtitle": "Skontaktuj się z nami, aby omówić swój projekt",
+                "team.crew.description": "Certyfikowani specjaliści elektrycy",
+                "team.crew.certificates": "Wszyscy technicy posiadają wymagane certyfikaty",
+                "testimonials.title": "Opinie klientów",
+                "testimonials.subtitle": "Co nasi klienci mówią o naszych usługach",
+                "testimonials.testimonial1.text": "\"AG GLOBAL ELECTRIC zapewnił doskonałe usługi dla naszej platformy morskiej. Ich zespół był profesjonalny i zakończył pracę przed terminem.\"",
+                "testimonials.testimonial1.author": "- Kierownik operacji morskich",
+                "contact.title": "Skontaktuj się z nami",
+                "contact.subtitle": "Skontaktuj się z nami, aby omówić swój projekt elektryczny",
                 "contact.info.title": "Dane kontaktowe",
-                "contact.address": "Kłajpeda, ul. Elektros 15",
+                "contact.address": "Kłajpeda, Litwa",
                 "contact.hours": "Pon-Pt: 8:00-17:00",
-                "contact.social.title": "Sieci społecznościowe",
+                "contact.social.title": "Media społecznościowe",
                 "contact.form.title": "Formularz kontaktowy",
                 "contact.form.name": "Twoje imię",
                 "contact.form.phone": "Telefon",
                 "contact.form.email": "Email",
-                "contact.form.service": "Interesująca usługa",
-                "contact.form.option1": "Montaż urządzeń elektrycznych",
-                "contact.form.option2": "Prace naprawcze",
-                "contact.form.option3": "Konserwacja techniczna",
-                "contact.form.option4": "Inne",
+                "contact.form.service": "Potrzebna usługa",
+                "contact.form.option1": "Instalacja światłowodu",
+                "contact.form.option2": "Usługi dla generatorów",
+                "contact.form.option3": "Systemy elektryczne dla marynarki",
+                "contact.form.option4": "Usługi dla klientów prywatnych",
+                "contact.form.option5": "Inne",
                 "contact.form.message": "Wiadomość",
                 "contact.form.button": "Wyślij zapytanie",
+                "contact.form.success": "Dziękujemy! Skontaktujemy się z Tobą wkrótce.",
                 "footer.services": "Usługi",
+                "footer.industries": "Branże",
                 "footer.team": "Zespół",
-                "footer.projects": "Projekty",
                 "footer.contact": "Kontakt",
                 "footer.privacy": "Polityka prywatności",
                 "footer.rights": "Wszelkie prawa zastrzeżone.",
@@ -1386,62 +1857,84 @@
                 "modal.callback.title": "Zamów rozmowę",
                 "modal.callback.name": "Twoje imię",
                 "modal.callback.phone": "Telefon",
-                "modal.callback.time": "Dogodny czas na rozmowę",
+                "modal.callback.time": "Preferowana godzina rozmowy",
                 "modal.callback.button": "Zamów rozmowę",
-                "modal.service1.title": "Montaż urządzeń elektrycznych",
-                "modal.service1.desc": "Oferujemy kompleksowe usługi montażu urządzeń elektrycznych na wysokości:",
-                "modal.service1.list1": "Montaż rozdzielnic i urządzeń rozdzielczych",
-                "modal.service1.list2": "Układanie linii kablowych",
-                "modal.service1.list3": "Montaż oświetlenia",
-                "modal.service1.list4": "Instalacja systemów uziemiających",
-                "modal.service1.button": "Zamów usługę",
-                "modal.service2.title": "Prace naprawcze",
-                "modal.service2.desc": "Nasi specjaliści wykonują wszystkie rodzaje prac naprawczych na wysokości:",
-                "modal.service2.list1": "Diagnostyka usterek",
-                "modal.service2.list2": "Naprawa urządzeń elektrycznych",
-                "modal.service2.list3": "Wymiana zużytych elementów",
-                "modal.service2.list4": "Prace awaryjne",
-                "modal.service2.button": "Zamów usługę",
-                "modal.service3.title": "Konserwacja techniczna",
-                "modal.service3.desc": "Regularna konserwacja techniczna to klucz do niezawodnej pracy urządzeń elektrycznych:",
-                "modal.service3.list1": "Planowane przeglądy",
-                "modal.service3.list2": "Prace profilaktyczne",
-                "modal.service3.list3": "Testowanie sprzętu",
-                "modal.service3.list4": "Przygotowywanie raportów",
-                "modal.service3.button": "Zamów usługę",
-                "modal.project1.title": "Obiekt przemysłowy",
-                "modal.project1.desc": "Pełny cykl prac elektroinstalacyjnych w przedsiębiorstwie produkcyjnym:",
-                "modal.project1.list1": "Montaż paneli zasilających",
-                "modal.project1.list2": "Układanie tras kablowych",
-                "modal.project1.list3": "Instalacja systemów oświetleniowych",
-                "modal.project1.list4": "Podłączenie urządzeń przemysłowych",
-                "modal.project1.button": "Zamów usługę",
-                "modal.project2.title": "Osiedle mieszkaniowe",
-                "modal.project2.desc": "Montaż urządzeń elektrycznych w wielopiętrowym budynku mieszkalnym:",
-                "modal.project2.list1": "Montaż rozdzielnic",
-                "modal.project2.list2": "Instalacja okablowania",
-                "modal.project2.list3": "Montaż systemu oświetlenia",
-                "modal.project2.list4": "Podłączenie urządzeń gospodarstwa domowego",
-                "modal.project2.button": "Zamów usługę",
-                "modal.project3.title": "Telekomunikacja",
-                "modal.project3.desc": "Montaż sprzętu na wieżach telekomunikacyjnych:",
-                "modal.project3.list1": "Montaż systemów antenowych",
-                "modal.project3.list2": "Układanie linii kablowych",
-                "modal.project3.list3": "Montaż urządzeń nadawczych",
-                "modal.project3.list4": "Testowanie i konfiguracja systemów",
-                "modal.project3.button": "Zamów usługę"
+                "modal.callback.success": "Dziękujemy! Oddzwonimy wkrótce.",
+                "modal.quote.title": "Otrzymaj wycenę",
+                "modal.quote.name": "Twoje imię",
+                "modal.quote.email": "Email",
+                "modal.quote.phone": "Telefon",
+                "modal.quote.service": "Potrzebna usługa",
+                "modal.quote.option1": "Instalacja światłowodu",
+                "modal.quote.option2": "Usługi dla generatorów",
+                "modal.quote.option3": "Systemy elektryczne dla marynarki",
+                "modal.quote.option4": "Usługi dla klientów prywatnych",
+                "modal.quote.option5": "Inne",
+                "modal.quote.details": "Szczegóły projektu",
+                "modal.quote.button": "Zamów wycenę",
+                "modal.quote.success": "Dziękujemy! Przygotujemy Twoją wycenę wkrótce.",
+                "modal.service1.title": "Instalacja kabli światłowodowych",
+                "modal.service1.desc": "Nasze profesjonalne usługi instalacji światłowodów obejmują:",
+                "modal.service1.list1": "Projektowanie i planowanie sieci światłowodowych",
+                "modal.service1.list2": "Instalacja podziemnych i napowietrznych kabli światłowodowych",
+                "modal.service1.list3": "Usługi spawania i zakończeń kabli",
+                "modal.service1.list4": "Testowanie i certyfikacja zainstalowanych światłowodów",
+                "modal.service1.list5": "Rozwiązania światłowodowe dla marynarki i platform morskich",
+                "modal.service1.button": "Zamów wycenę",
+                "modal.service2.title": "Usługi dla generatorów",
+                "modal.service2.desc": "Kompleksowe usługi dla generatorów wszystkich marek i modeli:",
+                "modal.service2.list1": "Montaż i uruchomienie nowych generatorów",
+                "modal.service2.list2": "Rutynowa konserwacja i serwis",
+                "modal.service2.list3": "Diagnostyka i rozwiązywanie problemów",
+                "modal.service2.list4": "Testowanie obciążeniowe",
+                "modal.service2.list5": "Usługi awaryjne",
+                "modal.service2.button": "Zamów wycenę",
+                "modal.service3.title": "Systemy elektryczne dla marynarki",
+                "modal.service3.desc": "Specjalistyczne usługi elektryczne dla zastosowań morskich:",
+                "modal.service3.list1": "Instalacja systemów elektrycznych dla jachtów i łodzi",
+                "modal.service3.list2": "Systemy nawigacyjne i komunikacyjne",
+                "modal.service3.list3": "Systemy dynamicznego pozycjonowania (DP)",
+                "modal.service3.list4": "Diagnostyka i naprawy elektryczne",
+                "modal.service3.list5": "Niestandardowe rozwiązania elektryczne",
+                "modal.service3.button": "Zamów wycenę",
+				"modal.height.title": "Instalacje elektryczne na wysokości",
+"modal.height.desc": "Nasi certyfikowani specjaliści świadczą profesjonalne usługi instalacji elektrycznych na wysokości:",
+"modal.height.list1": "Instalacje przemysłowe na wysokich konstrukcjach",
+"modal.height.list2": "Systemy elektryczne platform morskich",
+"modal.height.list3": "Instalacje na wieżach telekomunikacyjnych",
+"modal.height.list4": "Prace elektryczne na mostach i placach budowy",
+"modal.height.list5": "Certyfikowany sprzęt i procedury bezpieczeństwa",
+"modal.height.button": "Zamów wycenę",
+				
+                "modal.private.title": "Usługi dla klientów prywatnych",
+                "modal.private.desc": "Niestandardowe rozwiązania elektryczne dla klientów prywatnych:",
+                "modal.private.list1": "Systemy ogrzewania tarasów z regulatorami temperatury",
+                "modal.private.list2": "Automatyka domowa i inteligentne systemy",
+                "modal.private.list3": "Niestandardowe rozwiązania oświetleniowe",
+                "modal.private.list4": "Kontrole bezpieczeństwa elektrycznego",
+                "modal.private.list5": "Rozwiązania poprawiające efektywność energetyczną",
+                "modal.private.button": "Zamów wycenę",
+                "chatbot.title": "Asystent AG GLOBAL ELECTRIC",
+                "chatbot.welcome": "Witaj! Jak mogę Ci pomóc dzisiaj? Oto kilka często zadawanych pytań:",
+                "chatbot.options": "1. Jakie usługi oferujecie?<br>2. Jak mogę zamówić wycenę?<br>3. Jakie branże obsługujecie?<br>4. Jak mogę skontaktować się z Waszym zespołem?",
+                "chatbot.placeholder": "Wpisz swoją wiadomość...",
+                "chatbot.response1": "Oferujemy szeroki zakres usług elektrycznych, w tym instalację światłowodów, usługi dla generatorów, systemy elektryczne dla marynarki i rozwiązania dla klientów prywatnych.",
+                "chatbot.response2": "Możesz zamówić wycenę, wypełniając formularz na naszej stronie internetowej lub dzwoniąc do nas pod numer +370 648 88657.",
+                "chatbot.response3": "Obsługujemy różne branże, w tym ropę i gaz, marynarkę i stocznie, systemy satelitarne oraz klientów prywatnych.",
+                "chatbot.response4": "Możesz skontaktować się z naszym zespołem telefonicznie pod numerem +370 648 88657, mailowo na craer@yandex.ru lub wypełniając formularz kontaktowy na naszej stronie internetowej.",
+                "chatbot.default": "Przepraszam, nie zrozumiałem Twojego pytania. Proszę skontaktuj się z nami bezpośrednio pod numerem +370 648 88657, aby uzyskać pomoc."
             }
         };
 
-        // Установка языка по умолчанию
-        let currentLang = 'ru';
+        // Set default language to English
+        let currentLang = 'en';
         
-        // Функция смены языка
+        // Function to change language
         function changeLanguage(lang) {
             currentLang = lang;
             document.documentElement.lang = lang;
             
-            // Обновляем активную кнопку языка
+            // Update active language button
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if(btn.dataset.lang === lang) {
@@ -1449,12 +1942,14 @@
                 }
             });
             
-            // Обновляем текст на странице
+            // Update page text
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
                 if(translations[lang] && translations[lang][key]) {
                     if(element.tagName === 'INPUT' && element.type === 'submit') {
                         element.value = translations[lang][key];
+                    } else if(element.tagName === 'INPUT' && element.type === 'text' && element.placeholder) {
+                        element.placeholder = translations[lang][key];
                     } else if(element.tagName === 'OPTION') {
                         element.textContent = translations[lang][key];
                     } else {
@@ -1463,29 +1958,32 @@
                 }
             });
             
-            // Сохраняем выбор языка
+            // Save language preference
             localStorage.setItem('preferredLanguage', lang);
         }
         
-        // Инициализация языка
+        // Initialize language
         document.addEventListener('DOMContentLoaded', function() {
             const savedLang = localStorage.getItem('preferredLanguage');
             if(savedLang) {
                 changeLanguage(savedLang);
             } else {
-                // Установка языка по умолчанию
-                changeLanguage('ru');
+                // Set default to English
+                changeLanguage('en');
             }
             
-            // Обработчики для кнопок языка
+            // Handlers for language buttons
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     changeLanguage(this.dataset.lang);
                 });
             });
+            
+            // Initialize chatbot
+            initChatbot();
         });
 
-        // Управление модальными окнами
+        // Modal management
         function openModal(modalId) {
             document.getElementById(modalId).style.display = 'block';
             document.body.style.overflow = 'hidden';
@@ -1496,7 +1994,7 @@
             document.body.style.overflow = 'auto';
         }
         
-        // Закрытие при клике вне модального окна
+        // Close when clicking outside modal
         window.onclick = function(event) {
             if (event.target.className === 'modal') {
                 event.target.style.display = 'none';
@@ -1504,29 +2002,108 @@
             }
         }
         
-        // Обработка формы
+        // Form submission with email/SMS notification
         function submitForm(event) {
             event.preventDefault();
-            alert(getTranslation('contact.form.thanks'));
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Send notification
+            sendNotification(formData);
+            
+            // Show success message
+            document.getElementById('form-success').style.display = 'block';
+            
+            // Reset form
             document.getElementById('contactForm').reset();
+            
             return false;
         }
         
+        // Callback form submission
         document.getElementById('callbackForm').onsubmit = function(event) {
             event.preventDefault();
-            alert(getTranslation('modal.callback.thanks'));
+            
+            const formData = {
+                name: document.getElementById('callback-name').value,
+                phone: document.getElementById('callback-phone').value,
+                time: document.getElementById('callback-time').value,
+                type: 'callback'
+            };
+            
+            sendNotification(formData);
+            
+            document.getElementById('callback-success').style.display = 'block';
             this.reset();
-            closeModal('callback-modal');
+            
             return false;
         }
         
-        // Получение перевода
+        // Quote form submission
+        document.getElementById('quoteForm').onsubmit = function(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('quote-name').value,
+                email: document.getElementById('quote-email').value,
+                phone: document.getElementById('quote-phone').value,
+                service: document.getElementById('quote-service').value,
+                details: document.getElementById('quote-details').value,
+                type: 'quote'
+            };
+            
+            sendNotification(formData);
+            
+            document.getElementById('quote-success').style.display = 'block';
+            this.reset();
+            
+            return false;
+        }
+        
+        // Send email and SMS notification
+        function sendNotification(formData) {
+            // In a real implementation, you would send this data to your server
+            // which would then send the email and SMS notifications
+            
+            // For demonstration, we'll just log it
+            console.log('Notification data:', formData);
+            
+            // Email would be sent to craer@yandex.ru
+            // SMS would be sent to +37064888657
+            
+            // Example of what you might send to your server:
+            /*
+ fetch('/api/send-notification', {
+ method: 'POST',
+ headers: {
+ 'Content-Type': 'application/json',
+ },
+ body: JSON.stringify({
+ formData: formData,
+ email: 'craer@yandex.ru',
+ sms: '+37064888657'
+ })
+ })
+ .then(response => response.json())
+ .then(data => console.log('Notification sent:', data))
+ .catch(error => console.error('Error:', error));
+ */
+        }
+        
+        // Get translation
         function getTranslation(key) {
             return translations[currentLang] && translations[currentLang][key] ? 
                 translations[currentLang][key] : key;
         }
         
-        // Плавная прокрутка
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1537,18 +2114,76 @@
             });
         });
         
-        // Добавление сообщений для форм
-        translations.ru["contact.form.thanks"] = "Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.";
-        translations.ru["modal.callback.thanks"] = "Мы перезвоним вам в указанное время!";
+        // Chatbot functionality
+        function initChatbot() {
+            const chatbotButton = document.getElementById('chatbotButton');
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const closeChatbotBtn = document.querySelector('.close-chatbot');
+            const chatbotInput = document.getElementById('chatbotInput');
+            const chatbotBody = document.getElementById('chatbotBody');
+            
+            chatbotButton.addEventListener('click', function() {
+                chatbotWindow.style.display = chatbotWindow.style.display === 'block' ? 'none' : 'block';
+            });
+            
+            closeChatbotBtn.addEventListener('click', function() {
+                chatbotWindow.style.display = 'none';
+            });
+            
+            // Send message when Enter is pressed
+            chatbotInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendChatbotMessage();
+                }
+            });
+        }
         
-        translations.en["contact.form.thanks"] = "Thank you for your request! We will contact you shortly.";
-        translations.en["modal.callback.thanks"] = "We will call you at the specified time!";
+        function sendChatbotMessage() {
+            const chatbotInput = document.getElementById('chatbotInput');
+            const chatbotBody = document.getElementById('chatbotBody');
+            const message = chatbotInput.value.trim();
+            
+            if (message === '') return;
+            
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chatbot-message user-message';
+            userMessage.textContent = message;
+            chatbotBody.appendChild(userMessage);
+            
+            // Clear input
+            chatbotInput.value = '';
+            
+            // Scroll to bottom
+            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+            
+            // Process message and generate response
+            setTimeout(() => {
+                let responseKey = 'chatbot.default';
+                
+                if (message.toLowerCase().includes('service') || message.toLowerCase().includes('offer')) {
+                    responseKey = 'chatbot.response1';
+                } else if (message.toLowerCase().includes('quote') || message.toLowerCase().includes('price')) {
+                    responseKey = 'chatbot.response2';
+                } else if (message.toLowerCase().includes('industry') || message.toLowerCase().includes('serve')) {
+                    responseKey = 'chatbot.response3';
+                } else if (message.toLowerCase().includes('contact') || message.toLowerCase().includes('reach')) {
+                    responseKey = 'chatbot.response4';
+                }
+                
+                const botMessage = document.createElement('div');
+                botMessage.className = 'chatbot-message bot-message';
+                botMessage.innerHTML = getTranslation(responseKey);
+                chatbotBody.appendChild(botMessage);
+                
+                // Scroll to bottom
+                chatbotBody.scrollTop = chatbotBody.scrollHeight;
+            }, 500);
+        }
         
-        translations.lt["contact.form.thanks"] = "Ačiū už jūsų užklausą! Susisieksime su jumis netrukus.";
-        translations.lt["modal.callback.thanks"] = "Paskambinsime jums nurodytu laiku!";
-        
-        translations.pl["contact.form.thanks"] = "Dziękujemy za Twoje zgłoszenie! Skontaktujemy się z Tobą wkrótce.";
-        translations.pl["modal.callback.thanks"] = "Zadzwonimy do Ciebie w podanym czasie!";
+        function closeChatbot() {
+            document.getElementById('chatbotWindow').style.display = 'none';
+        }
 </script>
   </body>
 </html>
